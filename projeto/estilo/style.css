@@ -20,8 +20,8 @@ main {
 }
 
 header {
+    flex: 100%;
     height: 48px;
-    width: 100%;
     padding: 0px 40px;
     max-width: 800px;
 }
@@ -184,4 +184,37 @@ main > div > p {
 
 #btnAnuncio:hover > span {
     color: white;
+}
+
+.chat{
+    position: fixed;
+    bottom: 20px;
+    right: 6px;
+    max-width: 58px;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
+.local a{
+    margin-right: 20px;
+    color: #697172;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    position: fixed;
+    top: 12px;
+    right: 6px;
+}
+
+.local img{
+    margin-right: 20px;
+    color: #697172;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    position: fixed;
+    top: 14px;
+    right: 30px;
+    width: 15px;
 }
