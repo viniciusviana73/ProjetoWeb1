@@ -15,10 +15,15 @@
     padding: 0;
 }
 
+main {
+    margin-bottom: 500px;
+}
+
 header {
     height: 48px;
     width: 100%;
     padding: 0px 40px;
+    max-width: 800px;
 }
 
 header > a {
@@ -38,7 +43,7 @@ header > a::after {
 
 main {
     background-image: url("../imgs/signature-k650.webp");
-    background-size: 115%;
+    background-size: 108%;
     background-repeat: no-repeat;
     background-position: center top;
     height: 717px;
@@ -66,12 +71,12 @@ main > nav {
     display: inline-block;
     margin-right: 20px;
     max-width: 183px;
-    min-width: 180px;
+    min-width: 130px;
 }
 
 #navmenu {    
     width: calc(66.66667% - 20px);
-    margin-right: 20px;
+    margin: 0px 20px;
     flex-grow: 1;
     display: flex;
     justify-content: center;
@@ -144,7 +149,7 @@ main > div > p {
     color: white;
     font-size: 23px;
     text-align: center;    
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 #mainAnuncio {
