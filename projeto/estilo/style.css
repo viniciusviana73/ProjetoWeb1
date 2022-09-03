@@ -188,16 +188,17 @@ main > div > p {
 
 .chat{
     position: fixed;
-    bottom: 20px;
+    bottom: 40px;
     right: 6px;
     max-width: 58px;
     justify-content: center;
     display: flex;
     width: 100%;
+    padding-right: 15px;
 }
 
 .local a{
-    margin-right: 20px;
+    margin-right: 40px;
     color: #697172;
     display: flex;
     justify-content: flex-end;
@@ -208,7 +209,7 @@ main > div > p {
 }
 
 .local img{
-    margin-right: 20px;
+    margin-right: 40px;
     color: #697172;
     display: flex;
     justify-content: flex-end;
@@ -217,4 +218,14 @@ main > div > p {
     top: 14px;
     right: 30px;
     width: 15px;
+}
+
+header a {
+    text-decoration: none;
+    font-family: 'BrownBold';
+    font-size: 0.9em;
+}
+
+header a:hover {
+    text-decoration: underline;
 }
