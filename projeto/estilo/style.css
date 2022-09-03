@@ -190,3 +190,26 @@ main > div > p {
     display: flex;
     width: 100%;
 }
+
+.local a{
+    margin-right: 20px;
+    color: #697172;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    position: fixed;
+    top: 12px;
+    right: 6px;
+}
+
+.local img{
+    margin-right: 20px;
+    color: #697172;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    position: fixed;
+    top: 14px;
+    right: 30px;
+    width: 15px;
+}
