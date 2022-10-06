@@ -231,6 +231,29 @@ header a:hover {
     text-decoration: underline;
 }
 
+#divBuscaCep {
+    font-family: 'BrownLight';
+    background-color: rgba(59, 59, 59, 0.5);
+    text-align: center;
+    margin: 30px auto;
+    width: 250px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+#divBuscaCep > p {
+    padding: 10px;
+    color: white;
+}
+
+#divBuscaCep > button {
+    padding: 5px;
+}
+
+#divBuscaCep > input {
+    text-align: center;
+}
+
 @media(max-width: 1280px) {
     main {
         background-repeat: no-repeat;
