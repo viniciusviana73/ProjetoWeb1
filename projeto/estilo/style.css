@@ -231,11 +231,30 @@ header a:hover {
     text-decoration: underline;
 }
 
+section#buscarCep {
+    background-image: url('/projeto/imgs/cep_background.jpg');
+    background-attachment: fixed;
+    background-position: bottom;
+    height: 400px;
+    border: 1px solid rgba(0, 0, 0, 0.473);
+    padding: 50px;
+}
+
+section#buscarCep h1 {
+    color: white;
+    font-family: 'BrownBold';
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.6em;
+    text-shadow: -2px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
 #divBuscaCep {
     font-family: 'BrownLight';
-    background-color: rgba(59, 59, 59, 0.5);
+    background-color: rgba(59, 59, 59, 0.65);
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.5);
     text-align: center;
-    margin: 30px auto;
+    margin: auto;
     width: 250px;
     padding: 20px;
     border: 1px solid rgba(0, 0, 0, 0.6);
@@ -252,6 +271,15 @@ header a:hover {
 
 #divBuscaCep > input {
     text-align: center;
+}
+
+#mostraCep {
+    font-family: 'BrownLight';
+    background-color: white;
+    padding: 20px;
+    width: 350px;
+    margin: 30px auto 0px auto;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.5);
 }
 
 @media(max-width: 1280px) {
