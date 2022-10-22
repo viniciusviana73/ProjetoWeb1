@@ -302,15 +302,25 @@ section#criptografia input {
 
 .button {
     font-family: 'BrownBold';
+    color: white;
+    border: 1px solid white;
     margin-top: 20px;
-    padding: 5px;
+    padding: 10px;
     display: block;
     width: 150px;
-    /*background-color: transparent;*/
+    background-color: transparent;
 }
 
 .button:hover {
-    
+    color: green;
+    border: 1px solid green;
+    cursor: pointer;
+    transition-duration: 0.1s;
+}
+
+div#resultado {
+    padding: 20px;
+    font-size: 1.2em;
 }
 
 @media(max-width: 1280px) {
