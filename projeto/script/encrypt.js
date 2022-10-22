@@ -61,7 +61,25 @@ function checkInput(textArea, inputKey){
         resultado.style.color = 'red'
         return false
     } else {
+        resultado.innerHTML   = ''
         resultado.style.color = 'white'
         return true
+    }
+}
+
+function genKey(){
+    try {
+        var xhr = new XMLHttpRequest();
+        xhr.open ("GET", `https://classify-web.herokuapp.com/api/keygen`, true);
+        xhr.setRequestHeader ("Accept", "application/json");
+        xhr.onreadystatechange = function(){
+        if((xhr.readyState == 0 || xhr.readyState == 4) && xhr.status == 200)
+            console.log(xhr.responseText)
+            const keyJ = JSON.parse(xhr.responseText)
+            inputKeyC.value = keyJ.key
+        };
+        xhr.send (null);
+    } catch (error) {
+        alert(`Erro: ${error}`)
     }
 }

@@ -275,10 +275,25 @@ section#criptografia textarea {
     padding: 6px;
 }
 
-section#criptografia input {
-    margin: auto;
-    margin: 10px auto;
+#inputKeyU {
     display: block;
+    margin: 23px auto 34px auto;
+    width: 300px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.keySet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+#inputKeyC {
+    width: 300px;
+    margin-left: 50px;
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
 }
 
@@ -301,12 +316,12 @@ section#criptografia input {
 }
 
 .button {
+    display: block;
     font-family: 'BrownBold';
     color: white;
     border: 1px solid white;
-    margin-top: 20px;
+    margin: 10px auto;
     padding: 10px;
-    display: block;
     width: 150px;
     background-color: transparent;
 }
@@ -316,6 +331,19 @@ section#criptografia input {
     border: 1px solid green;
     cursor: pointer;
     transition-duration: 0.1s;
+}
+
+#btnKey {
+    background-color: transparent;
+    height: 36px;
+    border-style: none;
+    padding-left: 20px;
+}
+
+#btnKey:hover {
+    cursor: pointer;
+    -webkit-filter: drop-shadow(5px 5px 5px #dde013ab);
+    filter: drop-shadow(5px 5px 5px #dde013ab);
 }
 
 div#resultado {
@@ -365,5 +393,13 @@ div#resultado {
         margin: auto;
         max-width: 183px;
         min-width: 130px;
-    }    
+    }   
+    
+    section#criptografia textarea {
+        width: 80%;
+    }
+
+    #menuEncrypt {
+        padding: 0px;
+    }
 }
