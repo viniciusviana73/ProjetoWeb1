@@ -42,62 +42,34 @@
             </a>
         </div>
     </main>
-    <section id="buscarCep">
-        <h1>Consultar CEP</h1>
-        <div id="divBuscaCep">
-            <p>Insira o CEP:</p>
-            <input type="text" name="cep" id="inputCep">
-            <button onclick="localizar()">Buscar</button>
+    <section id="criptografia">
+        <h1>Bem vindo (a)!</h1>
+        <div id="menuEncrypt">
+            <a href="#divCripto" id="targetEncrypt">Criptografar</a>
+            <a href="#divUncripto">Descriptografar</a>
         </div>
-        <div id="mostraCep">
+        <div id="divCripto">
             <p>
-                <span id="lbCep">Cep:</span> <br>
-                <span id="lbEstado">Estado:</span> <br>
-                <span id="lbCidade">Cidade:</span> <br>
-                <span id="lbRua">Rua:</span> <br>
-                <span id="lbBairro">Bairro:</span> <br>
+                Insira o texto que deseja criptografar:
+                <textarea name="txtEncrypt" id="txtEncrypt" cols="30" rows="10"></textarea> <br>
+                Insira a chave para gerar criptografia:
+                <input type="text" name="inputKeyC" id="inputKeyC">
+                <input class="button" type="button" value="Criptografar" onclick="encryptData()">
             </p>
+        </div>
+        <div id="divUncripto">
+            <p>
+                Insira o conteúdo que deseja descriptografar:
+                <textarea name="txtDecrypt" id="txtDecrypt" cols="30" rows="10"></textarea> <br>
+                Insira a chave da criptografia:
+                <input type="text" name="inputKeyU" id="inputKeyU">
+                <input class="button" type="button" value="Descriptografar" onclick="decryptData()">
+            </p>
+        </div>
+        <div id="resultado">        
         </div>
     </section>
     <img class="chat" src="imgs/chat.png">
-    <script>
-        function localizar(){
-            let inputCep = document.getElementById('inputCep').value
-            if (inputCep === ''){
-                alert('Preencha corretamente o campo de CEP!')
-            } else {
-                var xhr = new XMLHttpRequest();
-                xhr.open ("GET", `http://cep.la/${inputCep}`, true);
-                xhr.setRequestHeader ("Accept", "application/json");
-                xhr.onreadystatechange = function(){
-                if((xhr.readyState == 0 || xhr.readyState == 4) && xhr.status == 200)
-                    console.log(xhr.responseText)
-                    const x = JSON.parse(xhr.responseText)
-                    preencheCep(x)
-                    limpar()
-            };
-            xhr.send (null);
-            }
-        }
-
-        function preencheCep(cepConsultado){
-            let cep     = document.querySelector('#lbCep')
-            let estado  = document.querySelector('#lbEstado')
-            let cidade  = document.querySelector('#lbCidade')
-            let rua     = document.querySelector('#lbRua')
-            let bairro  = document.querySelector('#lbBairro')
-
-            cep.innerHTML       = `Cep:     ${cepConsultado['cep']}`
-            estado.innerHTML    = `Estado:  ${cepConsultado['uf']}`
-            cidade.innerHTML    = `Cidade:  ${cepConsultado['cidade']}`
-            rua.innerHTML       = `Rua:     ${cepConsultado['logradouro']}`
-            bairro.innerHTML    = `Bairro:  ${cepConsultado['bairro']}`
-        }
-
-        function limpar(){
-            let inputCep = document.getElementById('inputCep')
-            inputCep.value = ''
-        }
-    </script>
+    <script src="script/encrypt.js"></script>
 </body>
 </html>
