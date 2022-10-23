@@ -48,6 +48,7 @@ async function decryptData(){
                 body: jsonData
             });
             const result = await response.json();
+            resultado.style.background = '#0000008c'
             resultado.innerHTML = ` <p>Resultado texto descriptografado com a chave "${String(inputKeyU.value)}": ${JSON.stringify(result.result)}</p>`
         } catch (error) {
             alert(`Erro: ${error}`);
@@ -57,12 +58,14 @@ async function decryptData(){
 
 function checkInput(textArea, inputKey){
     if (textArea.value == "" || inputKey.value == ""){
-        resultado.innerHTML   = `<p>Erro: Preencha todos os campos corretamente!</p>`
-        resultado.style.color = 'red'
+        resultado.style.color      = 'red'
+        resultado.style.background = '#0000008c'
+        resultado.innerHTML = `<p>Erro: Preencha todos os campos corretamente!</p>`
         return false
     } else {
-        resultado.innerHTML   = ''
+        resultado.style.background = 'transparent'
         resultado.style.color = 'white'
+        resultado.innerHTML   = ''
         return true
     }
 }

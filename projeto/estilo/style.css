@@ -273,6 +273,7 @@ section#criptografia textarea {
     width: 500px;
     text-align: justify;
     padding: 6px;
+    resize: none;
 }
 
 #inputKeyU {
@@ -327,8 +328,9 @@ section#criptografia textarea {
 }
 
 .button:hover {
-    color: green;
-    border: 1px solid green;
+    color: rgb(97, 175, 238);
+    border: 1px solid rgb(50, 112, 163);
+    background-color: black;
     cursor: pointer;
     transition-duration: 0.1s;
 }
@@ -342,8 +344,9 @@ section#criptografia textarea {
 
 #btnKey:hover {
     cursor: pointer;
-    -webkit-filter: drop-shadow(5px 5px 5px #dde013ab);
-    filter: drop-shadow(5px 5px 5px #dde013ab);
+    -webkit-filter: drop-shadow(5px 5px 5px #f8fc31ab);
+    filter: drop-shadow(5px 5px 5px #f2f53bab);
+    transition-duration: 0.2s;
 }
 
 div#resultado {
