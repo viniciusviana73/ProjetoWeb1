@@ -1,3 +1,4 @@
+const sectionLogin = document.querySelector("section#login")
 const form = document.querySelector("form"),
 campoEmail = form.querySelector(".email"),
 dadosEmail = campoEmail.querySelector("input"),
@@ -42,4 +43,12 @@ form.onsubmit = (e)=>{
       window.location.href = "index.html";
       console.log("Sucesso")
     }
+}
+
+function hideLogin(){
+  sectionLogin.classList.remove('open')
+}
+
+function showLogin(){
+  sectionLogin.classList.add('open')
 }
