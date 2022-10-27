@@ -7,6 +7,7 @@
     <title>Logitech</title>
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="estilo/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,1,0"/>
 </head>
 <body>
     <header>
@@ -72,7 +73,34 @@
         <div id="resultado">        
         </div>
     </section>
+    <section id="login">
+        <div id="campo-form">
+            <header>
+                <!--Logotipo-->
+            </header>
+            <form action="#">
+                <div class="campos email">
+                    <div class="area-input">
+                        <input type="email" name="email" id="iemail" placeholder="Email">
+                        <span class="icone material-symbols-outlined">mail</span>
+                        <span class="erros icone-erro material-symbols-outlined">error</span>
+                    </div>
+                    <div class="erros erro-msg">O email não pode estar em branco</div>
+                </div>
+                <div class="campos senha">
+                    <div class="area-input">
+                        <input type="password" name="password" id="ipassword" placeholder="Senha">
+                        <span class="icone material-symbols-outlined">lock</span>
+                        <span class="erros icone-erro material-symbols-outlined">error</span>
+                    </div>
+                    <div class="erros erro-msg">A senha não pode estar em branco</div>
+                </div>
+                <input type="submit" value="Entrar">
+            </form>
+        </div>
+    </section>
     <img class="chat" src="imgs/chat.png">
     <script src="script/encrypt.js"></script>
+    <script src="script/login.js"></script>
 </body>
 </html>

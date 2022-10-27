@@ -354,6 +354,137 @@ div#resultado {
     font-size: 1.2em;
 }
 
+section#login {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    background-color: darkgrey;
+}
+
+section#login header {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.400);
+    box-sizing: border-box;
+}
+
+#campo-form{
+    width: 380px;
+    background: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 40px 30px 50px 30px;
+    margin: auto;
+}
+
+#campo-form header{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#campo-form form{
+    margin: 40px 0px;
+}
+
+form input{
+    height: 50px;
+    width: 70%;
+    outline: none;
+    padding: 0px 50px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    border-bottom-width: 2px;
+}
+
+form .campos.erros input{
+    border-color: rgba(255, 0, 0, 0.700);;
+}
+
+form input::placeholder{
+    color: gray;
+    font-size: 17px;
+}
+
+form .campos{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+form .campos.shake{
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100%{
+        margin-left: 0px;
+    }
+    20%, 80%{
+        margin-left: -12px;
+    }
+    40%, 60%{
+        margin-left: 12px;
+    }
+}
+
+form .campos .area-input{
+    position: relative;
+}
+
+form .campos span{
+    position: absolute;
+    top: 50%;
+    font-size: 18px;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+form .campos .icone{
+    left: 15px;
+    color: gray;
+}
+
+form .campos .icone-erro{
+    right: 15px;
+    color: rgba(255, 0, 0, 0.700);
+}
+
+form .campos .erro-msg{
+    margin-top: 5px;
+    color: rgba(255, 0, 0, 0.700);
+    text-align: left;
+}
+
+form .campos .erros{
+    display: none;
+}
+
+form .campos.erros .erros{
+    display: block;
+}
+
+form input[type="submit"]{
+    margin-top: 30px;
+    border: none;
+    color: black;
+    cursor: pointer;
+    background-color: darkgray;
+    font-weight: 700;
+}
+
+form input[type="submit"]:hover{
+    background-color: gray;
+    color: white;
+}
+
 @media(max-width: 1280px) {
     main {
         background-repeat: no-repeat;
