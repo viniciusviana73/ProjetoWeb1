@@ -376,6 +376,17 @@ section#login {
     width: 100%;
 }
 
+div#btnLogin {
+    position: absolute;
+    right: -25px;
+}
+
+div#btnLogin a {
+    font-family: 'BrownBold';
+    position: relative;
+    top: 30px;
+}
+
 .blocker {
     position: fixed;
     top: 0;
