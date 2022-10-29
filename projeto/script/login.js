@@ -39,21 +39,18 @@ form.onsubmit = (e)=>{
         campoEmail.classList.remove("erros");
       }
     }
-
-    if(!campoEmail.classList.contains("erros") && !campoSenha.classList.contains("erros")){
-      logar()
-    }
 }
 
-async function logar(){
-  let email = document.querySelector('#iemail').value
+/*async function logar(){
+  let emailForm = document.querySelector('#iemail').value
+  let senhaForm = document.querySelector('#ipassword').value
   //let pass  = document.querySelector('#isenha').value
   
   try {
       let url      = 'https://reqres.in/api/login';
       let jsonData = JSON.stringify({
-        "email": String(email),
-        "password": "??????"  // Conferir check da senha
+        "email": String(emailForm),
+        "password": String(senhaForm)  // Conferir check da senha
       })
       let response = await fetch(url, {
           method: 'POST',
@@ -64,7 +61,7 @@ async function logar(){
       })
       const result = await response.text();
       const final = JSON.parse(result)
-      if (final.token != undefined){
+      if (final.token == undefined){
         hideLogin()
         btnLogin.style.display = 'none'
         alert(`Logado! Token: ${final.token}`) 
@@ -72,7 +69,7 @@ async function logar(){
   } catch (error) {
       alert(`Erro: ${error}`);
   }
-}
+}*/
 
 function hideLogin(){
   sectionLogin.classList.remove('open')
@@ -83,15 +80,28 @@ function showLogin(){
 }
 
 form.addEventListener("submit", function(e){
+  let emailForm = document.querySelector('#iemail').value
+  let senhaForm = document.querySelector('#ipassword').value
+  
+
   e.preventDefault();
+
   fetch("https://reqres.in/api/login", {
       method: 'POST',
-      headers : {"Content-Type": "application/json"} ,
+      headers : {"Content-Type": "application/json"},
       body: JSON.stringify({
-          "email":"eve.holt@reqres.in",
-          "password":"cityslicka"
+          "password": senhaForm,
+          "email": emailForm
       })
   })
-  .then(res => res.json())
-  .then(data => console.log(data))
+
+  .then(response => {
+   if (response.status != 400) {
+      hideLogin()
+      btnLogin.style.display = 'none'
+      alert(`Logado!`)
+    }
+    return response.json();})
+  .then(jsonData => {
+    console.log(jsonData)})
 })
