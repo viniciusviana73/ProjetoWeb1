@@ -5,6 +5,26 @@ dadosEmail = campoEmail.querySelector("input"),
 campoSenha = form.querySelector(".senha"),
 dadosSenha = campoSenha.querySelector("input");
 let btnLogin = document.querySelector('#btnLogin')
+let painelEncrypt = document.querySelector('#painelEncrypt')
+let msgInicial = document.querySelector('#msgInicial')
+let logado = false
+
+onLoad()
+
+function onLoad(){
+  if (logado == false){
+    painelEncrypt.style.display = 'none'
+    msgInicial.style.fontSize = '30px'
+    msgInicial.style.margin = '150px auto'
+    msgInicial.style.padding = '15px'
+    msgInicial.style.background = 'rgba(0, 0, 0, 0.600)'
+    msgInicial.style.fontFamily = 'BrownBold'
+    msgInicial.innerHTML = `<p>AVISO: Faça login para ter acesso ao sistema de criptografia.</p>`
+  } else if (logado == true){
+    painelEncrypt.style.display = 'block'
+    msgInicial.style.display = 'none'   
+  }
+}
 
 form.onsubmit = (e)=>{
   e.preventDefault();
@@ -82,7 +102,7 @@ function showLogin(){
 form.addEventListener("submit", function(e){
   let emailForm = document.querySelector('#iemail').value
   let senhaForm = document.querySelector('#ipassword').value
-  
+  let resLogin  = document.querySelector('#resLogin')
 
   e.preventDefault();
 
@@ -97,9 +117,17 @@ form.addEventListener("submit", function(e){
 
   .then(response => {
    if (response.status != 400) {
-      hideLogin()
-      btnLogin.style.display = 'none'
-      alert(`Logado!`)
+    btnLogin.style.display = 'none'
+    resLogin.style.color = '#71e067'
+    resLogin.innerHTML = `Logado com sucesso!`
+      setTimeout(function(){
+        hideLogin()
+      }, 1500)  
+    logado = true 
+    onLoad()   
+    } else if (response.status = 400){
+      resLogin.style.color = '#ff0000b3'
+      resLogin.innerHTML = `Erro ao logar! Usuário inválido!`
     }
     return response.json();})
   .then(jsonData => {

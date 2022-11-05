@@ -378,12 +378,14 @@ section#login {
 
 div#btnLogin {
     position: absolute;
-    right: -25px;
+    padding: 0px;
+    margin: 0px;
+    right: 0px;
 }
 
 div#btnLogin a {
-    font-family: 'BrownBold';
     position: relative;
+    font-family: 'BrownBold';
     top: 30px;
 }
 
@@ -438,7 +440,7 @@ form input{
 }
 
 form .campos.erros input{
-    border-color: rgba(255, 0, 0, 0.700);
+    border-color: #ff0000b3;
 }
 
 form input::placeholder{
@@ -453,6 +455,14 @@ form .campos{
 
 form .campos.shake{
     animation: shake 0.3s ease-in-out;
+}
+
+#resLogin {
+    margin: 30px auto -50px auto;
+}
+
+#painelEncrypt {
+    max-height: 50%;
 }
 
 @keyframes shake {
@@ -567,5 +577,12 @@ form input[type="submit"]:hover{
 
     #menuEncrypt {
         padding: 0px;
+    }
+}
+
+@media(max-width: 600px){
+    section#criptografia a {
+        margin: 20px;
+        padding: 13px;
     }
 }

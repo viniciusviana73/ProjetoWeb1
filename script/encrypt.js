@@ -7,8 +7,6 @@ let inputKeyU       = document.querySelector('#inputKeyU')
 let divDecrypt      = document.querySelector('#divUncripto')
 let resultado       = document.querySelector('#resultado')
 
-menuEncrypt.click()
-
 async function encryptData() {
     if (checkInput(textAreaEncrypt, inputKeyC)){
         try {
