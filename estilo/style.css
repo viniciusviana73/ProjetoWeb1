@@ -389,6 +389,22 @@ div#btnLogin a {
     top: 30px;
 }
 
+div#btnLogado {
+    display: none;
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    right: 0px;
+}
+
+div#btnLogado a {
+    pointer-events: none;
+    position: relative;
+    font-family: 'BrownBold';
+    top: 30px;
+}
+
+
 .blocker {
     position: fixed;
     top: 0;
@@ -462,6 +478,7 @@ form .campos.shake{
 }
 
 #painelEncrypt {
+    display: none;
     max-height: 50%;
 }
 

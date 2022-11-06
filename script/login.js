@@ -5,23 +5,26 @@ dadosEmail = campoEmail.querySelector("input"),
 campoSenha = form.querySelector(".senha"),
 dadosSenha = campoSenha.querySelector("input");
 let btnLogin = document.querySelector('#btnLogin')
+let btnLogado = document.querySelector('#btnLogado')
 let painelEncrypt = document.querySelector('#painelEncrypt')
 let msgInicial = document.querySelector('#msgInicial')
-let logado = false
+msgInicial.style.fontSize = '30px'
+msgInicial.style.margin = '150px auto'
+msgInicial.style.padding = '15px'
+msgInicial.style.background = 'rgba(0, 0, 0, 0.600)'
+msgInicial.style.fontFamily = 'BrownBold'
+msgInicial.innerHTML = `<p>AVISO: Faça login para ter acesso ao sistema de criptografia.</p>`
 
 onLoad()
 
 function onLoad(){
-  if (logado == false){
+  if (localStorage.getItem("logado") == 'false'){
     painelEncrypt.style.display = 'none'
-    msgInicial.style.fontSize = '30px'
-    msgInicial.style.margin = '150px auto'
-    msgInicial.style.padding = '15px'
-    msgInicial.style.background = 'rgba(0, 0, 0, 0.600)'
-    msgInicial.style.fontFamily = 'BrownBold'
-    msgInicial.innerHTML = `<p>AVISO: Faça login para ter acesso ao sistema de criptografia.</p>`
-  } else if (logado == true){
+
+  } else if (localStorage.getItem("logado") == 'true'){
     painelEncrypt.style.display = 'block'
+    btnLogin.style.display = 'none'
+    btnLogado.style.display = 'block'
     msgInicial.style.display = 'none'   
   }
 }
@@ -118,14 +121,16 @@ form.addEventListener("submit", function(e){
   .then(response => {
    if (response.status != 400) {
     btnLogin.style.display = 'none'
+    btnLogado.style.display = 'block'
     resLogin.style.color = '#71e067'
     resLogin.innerHTML = `Logado com sucesso!`
+    localStorage.setItem("logado","true")
       setTimeout(function(){
         hideLogin()
-      }, 1500)  
-    logado = true 
+      }, 1500)
     onLoad()   
     } else if (response.status = 400){
+      localStorage.setItem("logado","false")
       resLogin.style.color = '#ff0000b3'
       resLogin.innerHTML = `Erro ao logar! Usuário inválido!`
     }
