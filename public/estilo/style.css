@@ -322,6 +322,10 @@ section#login.open {
     display: flex;
 }
 
+section#cadastro.open {
+    display: flex;
+}
+
 .button {
     display: block;
     font-family: 'BrownBold';
@@ -376,6 +380,32 @@ section#login {
     width: 100%;
 }
 
+#infoCad{
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#infoCad:hover{
+    color: darkgray;
+}
+
+section#cadastro {
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    align-items: center;
+    justify-content: center;
+    min-height: 101vh;
+    width: 100%;
+}
+
 div#btnLogin {
     position: absolute;
     padding: 0px;
@@ -404,6 +434,19 @@ div#btnLogado a {
     top: 30px;
 }
 
+div#btnDeslogar {
+    display: none;
+}
+
+div#btnDeslogar a {
+    position: relative;
+    font-family: 'BrownBold';
+    top: 30px;
+    color: green;
+    background-color: white;
+    border-radius: 18px;
+}
+
 
 .blocker {
     position: fixed;
@@ -416,6 +459,16 @@ div#btnLogado a {
 }
 
 section#login header {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.400);
+    box-sizing: border-box;
+}
+
+section#cadastro header {
     width: 150px;
     height: 150px;
     margin: auto;
@@ -444,6 +497,25 @@ section#login header {
     margin: 40px 0px;
 }
 
+#campo-form2{
+    width: 380px;
+    background: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 40px 30px 50px 30px;
+    margin: auto;
+    position: relative;
+}
+
+#campo-form2 header{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#campo-form2 form{
+    margin: 40px 0px;
+}
+
 form input{
     height: 50px;
     width: 70%;
@@ -456,6 +528,10 @@ form input{
 }
 
 form .campos.erros input{
+    border-color: #ff0000b3;
+}
+
+#iCadastros .campos.erros input{
     border-color: #ff0000b3;
 }
 
@@ -473,7 +549,16 @@ form .campos.shake{
     animation: shake 0.3s ease-in-out;
 }
 
+#iCadastro .campos.shake{
+    animation: shake 0.3s ease-in-out;
+}
+
+
 #resLogin {
+    margin: 30px auto -50px auto;
+}
+
+#resCadastro {
     margin: 30px auto -50px auto;
 }
 
@@ -494,11 +579,35 @@ form .campos.shake{
     }
 }
 
+@keyframes shake2 {
+    0%, 100%{
+        margin-left: 0px;
+    }
+    20%, 80%{
+        margin-left: -12px;
+    }
+    40%, 60%{
+        margin-left: 12px;
+    }
+}
+
 form .campos .area-input{
     position: relative;
 }
 
+#iCadastros .campos .area-input{
+    position: relative;
+}
+
 form .campos span{
+    position: absolute;
+    top: 50%;
+    font-size: 18px;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+#iCadastros .campos span{
     position: absolute;
     top: 50%;
     font-size: 18px;
@@ -516,7 +625,18 @@ form .campos .icone-erro{
     color: rgba(255, 0, 0, 0.700);
 }
 
+#iCadastros .campos .icone-erro{
+    right: 15px;
+    color: rgba(255, 0, 0, 0.700);
+}
+
 form .campos .erro-msg{
+    margin-top: 5px;
+    color: rgba(255, 0, 0, 0.700);
+    text-align: left;
+}
+
+#iCadastros .campos .erro-msg{
     margin-top: 5px;
     color: rgba(255, 0, 0, 0.700);
     text-align: left;
@@ -526,7 +646,15 @@ form .campos .erros{
     display: none;
 }
 
+#iCadastros .campos .erros{
+    display: none;
+}
+
 form .campos.erros .erros{
+    display: block;
+}
+
+#iCadastros .campos.erros .erros{
     display: block;
 }
 

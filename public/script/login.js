@@ -1,13 +1,25 @@
 const sectionLogin = document.querySelector("section#login")
+const sectionCadastro = document.querySelector("section#cadastro")
+
 const form = document.querySelector("form"),
 campoEmail = form.querySelector(".email"),
 dadosEmail = campoEmail.querySelector("input"),
 campoSenha = form.querySelector(".senha"),
 dadosSenha = campoSenha.querySelector("input");
+
+const formCad = document.querySelector("#iCadastros"),
+campoEmailCad = formCad.querySelector(".email"),
+dadosEmailCad = campoEmailCad.querySelector("input"),
+campoSenhaCad = formCad.querySelector(".senha"),
+dadosSenhaCad = campoSenhaCad.querySelector("input");
+
 let btnLogin = document.querySelector('#btnLogin')
 let btnLogado = document.querySelector('#btnLogado')
+let areaCadastro = document.querySelector('#cadastro')
+let btnDeslogar = document.querySelector('#btnDeslogar')
 let painelEncrypt = document.querySelector('#painelEncrypt')
 let msgInicial = document.querySelector('#msgInicial')
+
 msgInicial.style.fontSize = '30px'
 msgInicial.style.margin = '150px auto'
 msgInicial.style.padding = '15px'
@@ -25,8 +37,14 @@ function onLoad(){
     painelEncrypt.style.display = 'block'
     btnLogin.style.display = 'none'
     btnLogado.style.display = 'block'
+    btnDeslogar.style.display = 'block'
     msgInicial.style.display = 'none'   
   }
+}
+
+function deslogar(){
+  localStorage.setItem("logado","false");
+  window.location.reload(true);
 }
 
 form.onsubmit = (e)=>{
@@ -64,6 +82,41 @@ form.onsubmit = (e)=>{
     }
 }
 
+formCad.onsubmit = (e)=>{
+  e.preventDefault();
+  
+    if(dadosEmailCad.value == ""){
+      campoEmailCad.classList.add("shake", "erros");
+    }else{
+      checarEmailCad();
+    }
+    if(dadosSenhaCad.value == ""){
+      campoSenhaCad.classList.add("shake", "erros");
+    }else{
+      campoSenhaCad.classList.remove("erros");
+    }
+
+    setTimeout(()=>{
+      campoEmailCad.classList.remove("shake");
+      campoSenhaCad.classList.remove("shake");
+    }, 500);
+
+    dadosEmailCad.onkeyup = ()=>{
+      checarEmailCad();
+    }
+
+    function checarEmailCad(){
+      let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if(!dadosEmailCad.value.match(pattern)){
+        campoEmailCad.classList.add("erros");
+        let erromsgcad = campoEmailCad.querySelector(".erro-msg");
+        (dadosEmailCad.value != "") ? erromsgcad.innerText = "O email tem que ser valido" : erromsgcad.innerText = "O email não pode estar em branco";
+      }else{
+        campoEmailCad.classList.remove("erros");
+      }
+    }
+}
+
 /*async function logar(){
   let emailForm = document.querySelector('#iemail').value
   let senhaForm = document.querySelector('#ipassword').value
@@ -94,6 +147,17 @@ form.onsubmit = (e)=>{
   }
 }*/
 
+/** 
+const formCadastros = document.querySelector('#iCadastros');
+
+formCadastros.addEventListener('submit', function postar(e){
+    e.preventDefault();
+*/
+function irCadastro(){
+  hideLogin();
+  areaCadastro.style.display = 'flex'
+}
+
 function hideLogin(){
   sectionLogin.classList.remove('open')
 }
@@ -101,6 +165,7 @@ function hideLogin(){
 function showLogin(){
   sectionLogin.classList.add('open')
 }
+
 
 form.addEventListener("submit", function(e){
   let emailForm = document.querySelector('#iemail').value

@@ -50,6 +50,10 @@
         <div id="btnLogado">
             <a href="#logado" id="btnLogado">Logado!</a>
         </div>
+        <div id="btnDeslogar">
+            <a onclick="deslogar()" href="#deslogar" id="btnDeslogar">Desconectar</a>
+        </div>
+        
         <h1>Bem vindo (a)!</h1>
         <div id="msgInicial"></div>
         <div id="painelEncrypt">
@@ -106,7 +110,38 @@
                     <div class="erros erro-msg">A senha não pode estar em branco</div>
                 </div>
                 <input type="submit" value="Entrar">
+                <div id="infoCad">
+                    <a onclick="irCadastro()">Não tem cadastro? Cadastre-se</a>
+                </div>
                 <div id="resLogin"></div>
+            </form>
+        </div>
+    </section>
+    <section id="cadastro">
+        <div class="blocker" onclick="hideCadastro()"></div>
+        <div id="campo-form2">
+            <header>
+                <!--Logotipo-->
+            </header>
+            <form action="#" id="iCadastros">
+                <div class="campos email">
+                    <div class="area-input">
+                        <input type="email" name="email" id="iemailCad" placeholder="Email">
+                        <span class="icone material-symbols-outlined">mail</span>
+                        <span class="erros icone-erro material-symbols-outlined">error</span>
+                    </div>
+                    <div class="erros erro-msg">O email não pode estar em branco</div>
+                </div>
+                <div class="campos senha">
+                    <div class="area-input">
+                        <input type="password" name="password" id="ipasswordCad" placeholder="Senha">
+                        <span class="icone material-symbols-outlined">lock</span>
+                        <span class="erros icone-erro material-symbols-outlined">error</span>
+                    </div>
+                    <div class="erros erro-msg">A senha não pode estar em branco</div>
+                </div>
+                <input type="submit" value="Cadastrar">
+                <div id="resCadastro"></div>
             </form>
         </div>
     </section>
