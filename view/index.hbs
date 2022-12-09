@@ -110,8 +110,33 @@
             </form>
         </div>
     </section>
+    <section class="noticias">
+        <div class="area-noticias">
+            <form action="/" method="post" class="form-noticias">
+                <h3>Cadastrar uma noticia</h3>
+                <div id="n-1">
+                    <label for="ititulo">Titulo</label>
+                    <input type="text" id="ititulo" name="titulo">
+                </div>
+                <div id="n-2">
+                    <label for="iconteudo">Conteúdo</label>
+                    <textarea id="iconteudo" name="conteudo" rows="10" cols="100"></textarea>
+                </div>
+
+                <button type="submit">Postar</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="posts">
+        <h2>Noticias</h2>
+        <ul id="postagens">
+
+        </ul>
+    </section>
     <img class="chat" src="imgs/chat.png">
     <script src="script/encrypt.js"></script>
     <script src="script/login.js"></script>
+    <script src="script/noticias.js"></script>
 </body>
 </html>
