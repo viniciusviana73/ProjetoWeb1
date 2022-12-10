@@ -3,7 +3,8 @@ let http = require('http'),
     express = require('express'),
     app = express(),
     //cookieParser = require('cookie-parser'), 
-    Users = require('./models/Users')
+    Users = require('./models/Users'),
+    Noticias = require('./models/Noticias')
 
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'view'))
@@ -42,6 +43,14 @@ app.post('/logar', async (req, res) => {
         } else {
             console.log('Erro ao logar.')
         }
+})
+
+app.post('/cadastrar_noticia', async (req, res) => {
+    let title = req.body.titulo,
+        content = req.body.conteudo
+
+    await Noticias.insert(title, content)
+    res.redirect('/')
 })
 
 app.listen(3000, () => {

@@ -1,3 +1,4 @@
+/*
 const formNoticias = document.querySelector('.form-noticias');
 
 formNoticias.addEventListener('submit', function postar(e){
@@ -15,3 +16,4 @@ formNoticias.addEventListener('submit', function postar(e){
     campoConteudo.value = '';
 
 })
+*/
