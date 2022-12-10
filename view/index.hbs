@@ -165,12 +165,14 @@
     <section class="posts">
         <h2>Noticias</h2>
         <ul id="postagens">
-
+            {{#each noticias}}
+            <li id="cTitulo">{{title}}</li>
+            <li id="cConteudo">{{content}}</li>
+            {{/each}}
         </ul>
     </section>
     <img class="chat" src="imgs/chat.png">
     <script src="script/encrypt.js"></script>
     <script src="script/login.js"></script>
-    <script src="script/noticias.js"></script>
 </body>
 </html>

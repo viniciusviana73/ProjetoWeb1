@@ -12,12 +12,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 //app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
-
-app.get('/index', (req, res) => {
-    res.render('index')
+app.get('/', async (req, res) => {
+    const noticias = await Noticias.find()
+    res.render('index', {noticias: noticias})
 })
 
 app.post('/cadastrar_user', async (req, res) => {
@@ -42,15 +39,22 @@ app.post('/logar', async (req, res) => {
             res.redirect('/')
         } else {
             console.log('Erro ao logar.')
+            res.status(403)
+            res.end()
         }
 })
 
 app.post('/cadastrar_noticia', async (req, res) => {
     let title = req.body.titulo,
-        content = req.body.conteudo
+    content = req.body.conteudo
 
-    await Noticias.insert(title, content)
-    res.redirect('/')
+    if (!req.body || title == '' || content == '') {
+        res.status(400)
+        res.end()
+    } else {
+        await Noticias.insert(title, content)
+        res.redirect('/')
+    }    
 })
 
 app.listen(3000, () => {
