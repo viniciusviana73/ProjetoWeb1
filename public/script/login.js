@@ -47,6 +47,7 @@ function deslogar(){
   window.location.reload(true);
 }
 
+/*
 form.onsubmit = (e)=>{
   e.preventDefault();
   
@@ -117,6 +118,8 @@ formCad.onsubmit = (e)=>{
     }
 }
 
+*/
+
 /*async function logar(){
   let emailForm = document.querySelector('#iemail').value
   let senhaForm = document.querySelector('#ipassword').value
@@ -166,7 +169,7 @@ function showLogin(){
   sectionLogin.classList.add('open')
 }
 
-
+/*
 form.addEventListener("submit", function(e){
   let emailForm = document.querySelector('#iemail').value
   let senhaForm = document.querySelector('#ipassword').value
@@ -203,3 +206,4 @@ form.addEventListener("submit", function(e){
   .then(jsonData => {
     console.log(jsonData)})
 })
+*/
