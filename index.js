@@ -2,14 +2,14 @@ let http = require('http'),
     path = require('path'),
     express = require('express'),
     app = express(),
-    //cookieParser = require('cookie-parser'), 
+    cookieParser = require('cookie-parser'), 
     Users = require('./models/Users'),
     Noticias = require('./models/Noticias')
 
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'view'))
 app.use(express.static(path.join(__dirname, 'public')))
-//app.use(cookieParser())
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
 
 app.get('/', async (req, res) => {
@@ -34,8 +34,8 @@ app.post('/logar', async (req, res) => {
         password = req.body.password
 
         if (await Users.find(login, password)){
-            //res.cookie('login', login)
-            console.log(`Logado! Cookies criados.`)
+            res.cookie('login', login)
+            console.log(`Logado! Cookies criados. -> ${req.cookies.login}`)
             res.redirect('/')
         } else {
             console.log('Erro ao logar.')
