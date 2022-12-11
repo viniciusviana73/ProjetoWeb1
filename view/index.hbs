@@ -166,9 +166,13 @@
             </form>
         </div>
     </section>
-
     <section class="posts">
         <h2>Noticias</h2>
+        <form action="buscar_post" method="GET" id="formBusca">
+            <label for="inputTermo">Buscar por título: </label>
+            <input type="text" name="titulo" id="inputTermo">
+            <input type="submit" value="Buscar">
+        </form>
         <ul id="postagens">
             {{#each noticias}}
             <li id="cTitulo">{{title}}</li>

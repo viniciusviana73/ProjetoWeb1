@@ -665,15 +665,32 @@ form .campos.erros .erros{
 form input[type="submit"]{
     margin-top: 30px;
     border: none;
-    color: black;
+    color: white;
     cursor: pointer;
-    background-color: darkgray;
+    background-color: rgb(65, 65, 65);
     font-weight: 700;
 }
 
 form input[type="submit"]:hover{
     background-color: gray;
     color: white;
+}
+
+form#formBusca {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+form#formBusca label {
+    text-align: center;
+    font-family: 'BrownBold';
+    padding: 10px;
+}
+
+form#formBusca input {
+    margin: 10px auto;
+    width: 500px;
 }
 
 @media(max-width: 1280px) {

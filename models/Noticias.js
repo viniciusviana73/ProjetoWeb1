@@ -1,15 +1,16 @@
 const MongoClient = require('mongodb').MongoClient
 
 module.exports = class Noticias {
-    static async find(busca) {
+    static async find(titulo) {
         const conn = await MongoClient.connect('mongodb://localhost:27017/ProjetoWeb'),
               db = conn.db()
         let result
         
-        if (busca) {
+        if (titulo) {
             result = await db.collection('Noticias')
                              .find({
-                                    title : new RegExp('^' + busca.toUpperCase()) || new RegExp('^' + busca.toLowerCase())
+                                    title : new RegExp('^' + titulo.toUpperCase()) || new RegExp('^' + titulo.toLowerCase()), 
+                                    title : { '$regex' : titulo, '$options' : 'i' }
                                    }).toArray()
         } else {
             result = await db.collection('Noticias').find().toArray()

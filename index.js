@@ -57,6 +57,12 @@ app.post('/cadastrar_noticia', async (req, res) => {
     }    
 })
 
+app.get('/buscar_post', async (req, res) => {
+    let titulo = req.query.titulo
+    const noticias = await Noticias.find(titulo)
+    res.render('index', {noticias: noticias})
+})
+
 app.listen(3000, () => {
     console.log(`Server running now on http://localhost:3000`)
 })
