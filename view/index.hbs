@@ -92,7 +92,7 @@
             <header>
                 <!--Logotipo-->
             </header>
-            <form action="logar" method="POST">
+            <form action="logar" method="POST" id="formLogin">
                 <div class="campos email">
                     <div class="area-input">
                         <input type="email" name="login" id="iemail" placeholder="Email">
@@ -149,15 +149,20 @@
         <div class="area-noticias">
             <form action="cadastrar_noticia" method="POST" class="form-noticias">
                 <h3>Cadastrar uma noticia</h3>
-                <div id="n-1">
+                <div id="n-1" class="campos">
                     <label for="ititulo">Titulo</label>
                     <input type="text" id="ititulo" name="titulo">
+                    <div class="erros erro-msg">O titulo não pode estar em branco</div>
                 </div>
-                <div id="n-2">
+                <div id="n-2" class="campos">
                     <label for="iconteudo">Conteúdo</label>
                     <textarea id="iconteudo" name="conteudo" rows="10" cols="100"></textarea>
+                    <div class="erros erro-msg">O conteudo não pode estar em branco</div>
                 </div>
-                <input type="submit" value="Postar">
+                <div id="n-3">
+                    <input type="submit" value="Postar">
+                </div>
+                
             </form>
         </div>
     </section>

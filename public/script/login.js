@@ -1,7 +1,7 @@
 const sectionLogin = document.querySelector("section#login")
 const sectionCadastro = document.querySelector("section#cadastro")
 
-const form = document.querySelector("form"),
+const form = document.querySelector("#formLogin"),
 campoEmail = form.querySelector(".email"),
 dadosEmail = campoEmail.querySelector("input"),
 campoSenha = form.querySelector(".senha"),
@@ -12,6 +12,12 @@ campoEmailCad = formCad.querySelector(".email"),
 dadosEmailCad = campoEmailCad.querySelector("input"),
 campoSenhaCad = formCad.querySelector(".senha"),
 dadosSenhaCad = campoSenhaCad.querySelector("input");
+
+const formNoticia = document.querySelector(".form-noticias"),
+campoTituloNot = formNoticia.querySelector("#n-1"),
+dadosTituloNot = campoTituloNot.querySelector("input"),
+campoConteudoNot = formNoticia.querySelector("#n-2"),
+dadosConteudoNot = campoConteudoNot.querySelector("textarea");
 
 let btnLogin = document.querySelector('#btnLogin')
 let btnLogado = document.querySelector('#btnLogado')
@@ -47,17 +53,18 @@ function deslogar(){
   window.location.reload(true);
 }
 
-/*
+
 form.onsubmit = (e)=>{
-  e.preventDefault();
   
     if(dadosEmail.value == ""){
       campoEmail.classList.add("shake", "erros");
+      e.preventDefault();
     }else{
       checarEmail();
     }
     if(dadosSenha.value == ""){
       campoSenha.classList.add("shake", "erros");
+      e.preventDefault();
     }else{
       campoSenha.classList.remove("erros");
     }
@@ -77,6 +84,7 @@ form.onsubmit = (e)=>{
         campoEmail.classList.add("erros");
         let erromsg = campoEmail.querySelector(".erro-msg");
         (dadosEmail.value != "") ? erromsg.innerText = "O email tem que ser valido" : erromsg.innerText = "O email não pode estar em branco";
+        e.preventDefault();
       }else{
         campoEmail.classList.remove("erros");
       }
@@ -84,15 +92,16 @@ form.onsubmit = (e)=>{
 }
 
 formCad.onsubmit = (e)=>{
-  e.preventDefault();
   
     if(dadosEmailCad.value == ""){
       campoEmailCad.classList.add("shake", "erros");
+      e.preventDefault();
     }else{
       checarEmailCad();
     }
     if(dadosSenhaCad.value == ""){
       campoSenhaCad.classList.add("shake", "erros");
+      e.preventDefault();
     }else{
       campoSenhaCad.classList.remove("erros");
     }
@@ -112,13 +121,36 @@ formCad.onsubmit = (e)=>{
         campoEmailCad.classList.add("erros");
         let erromsgcad = campoEmailCad.querySelector(".erro-msg");
         (dadosEmailCad.value != "") ? erromsgcad.innerText = "O email tem que ser valido" : erromsgcad.innerText = "O email não pode estar em branco";
+        e.preventDefault();
       }else{
         campoEmailCad.classList.remove("erros");
       }
     }
 }
 
-*/
+formNoticia.onsubmit = (e)=>{
+  
+  if(dadosTituloNot.value == ""){
+    campoTituloNot.classList.add("shake", "erros");
+    e.preventDefault();
+  }else{
+    campoTituloNot.classList.remove("erros");
+  }
+
+  if(dadosConteudoNot.value == ""){
+    campoConteudoNot.classList.add("shake", "erros");
+    e.preventDefault();
+  }else{
+    campoConteudoNot.classList.remove("erros");
+  }
+
+  setTimeout(()=>{
+    campoTituloNot.classList.remove("shake");
+    campoConteudoNot.classList.remove("shake");
+  }, 500);
+
+}
+
 
 /*async function logar(){
   let emailForm = document.querySelector('#iemail').value

@@ -531,6 +531,10 @@ form .campos.erros input{
     border-color: #ff0000b3;
 }
 
+form .campos.erros textarea{
+    border-color: #ff0000b3;
+}
+
 #iCadastros .campos.erros input{
     border-color: #ff0000b3;
 }
@@ -734,7 +738,7 @@ form input[type="submit"]:hover{
 
 .noticias{
     display: flex;
-    height: 500px;
+    height: 600px;
 }
 
 .noticias h3{
@@ -766,12 +770,23 @@ form input[type="submit"]:hover{
 }
 
 .form-noticias #n-2 textarea{
-    margin: 10px 0px;
     height: 200px;
     width: 600px;
     outline: none;
     resize: none;
     border-radius: 5px;
+}
+
+.form-noticias #n-3 input{
+    display: flex;
+    height: 50px;
+    width: 100px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .noticias button{
