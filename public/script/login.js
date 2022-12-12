@@ -151,46 +151,9 @@ formNoticia.onsubmit = (e)=>{
 
 }
 
-
-/*async function logar(){
-  let emailForm = document.querySelector('#iemail').value
-  let senhaForm = document.querySelector('#ipassword').value
-  //let pass  = document.querySelector('#isenha').value
-  
-  try {
-      let url      = 'https://reqres.in/api/login';
-      let jsonData = JSON.stringify({
-        "email": String(emailForm),
-        "password": String(senhaForm)  // Conferir check da senha
-      })
-      let response = await fetch(url, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: jsonData
-      })
-      const result = await response.text();
-      const final = JSON.parse(result)
-      if (final.token == undefined){
-        hideLogin()
-        btnLogin.style.display = 'none'
-        alert(`Logado! Token: ${final.token}`) 
-      }
-  } catch (error) {
-      alert(`Erro: ${error}`);
-  }
-}*/
-
-/** 
-const formCadastros = document.querySelector('#iCadastros');
-
-formCadastros.addEventListener('submit', function postar(e){
-    e.preventDefault();
-*/
 function irCadastro(){
   hideLogin();
-  areaCadastro.style.display = 'flex'
+  showCadastro()
 }
 
 function hideLogin(){
@@ -201,41 +164,10 @@ function showLogin(){
   sectionLogin.classList.add('open')
 }
 
-/*
-form.addEventListener("submit", function(e){
-  let emailForm = document.querySelector('#iemail').value
-  let senhaForm = document.querySelector('#ipassword').value
-  let resLogin  = document.querySelector('#resLogin')
+function showCadastro(){
+  sectionCadastro.classList.add('open')
+}
 
-  e.preventDefault();
-
-  fetch("https://reqres.in/api/login", {
-      method: 'POST',
-      headers : {"Content-Type": "application/json"},
-      body: JSON.stringify({
-          "password": senhaForm,
-          "email": emailForm
-      })
-  })
-
-  .then(response => {
-   if (response.status != 400) {
-    btnLogin.style.display = 'none'
-    btnLogado.style.display = 'block'
-    resLogin.style.color = '#71e067'
-    resLogin.innerHTML = `Logado com sucesso!`
-    localStorage.setItem("logado","true")
-      setTimeout(function(){
-        hideLogin()
-      }, 1500)
-    onLoad()   
-    } else if (response.status = 400){
-      localStorage.setItem("logado","false")
-      resLogin.style.color = '#ff0000b3'
-      resLogin.innerHTML = `Erro ao logar! Usuário inválido!`
-    }
-    return response.json();})
-  .then(jsonData => {
-    console.log(jsonData)})
-})
-*/
+function hideCadastro(){
+  sectionCadastro.classList.remove('open')
+}
