@@ -209,7 +209,7 @@ main > div > p {
     display: flex;
     justify-content: flex-end;
     align-items: stretch;
-    position: fixed;
+    position: absolute;
     top: 12px;
     right: 6px;
 }
@@ -220,7 +220,7 @@ main > div > p {
     display: flex;
     justify-content: flex-end;
     align-items: stretch;
-    position: fixed;
+    position: absolute;
     top: 14px;
     right: 30px;
     width: 15px;
@@ -716,7 +716,7 @@ form#formBusca input {
 }
 
 #blockern {
-    position: relative;
+    position: static;
     height: 600px;
     width: 100vw;
     top: 0;
@@ -822,12 +822,19 @@ form#formBusca input {
     text-indent: 50px;
 }
 
-.posts article > p {
+.posts article > p.content {
     font-family: 'Quicksand', sans-serif;
     text-align: justify;
     text-indent: 2em;
     margin: 15px auto;
     padding: 15px;
+}
+
+.postBy {
+    color: rgb(30, 95, 40);
+    padding: 3px;
+    font-family: 'Quicksand', sans-serif;
+    text-align: right;
 }
 
 @media(max-width: 1280px) {
