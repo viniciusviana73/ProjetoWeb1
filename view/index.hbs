@@ -146,11 +146,12 @@
         </div>
     </section>
     <section class="noticias">
-        <div class="area-noticias">
+        <div id="blockern">
+            <div class="area-noticias">
             <form action="cadastrar_noticia" method="POST" class="form-noticias">
                 <h3>Cadastrar uma noticia</h3>
                 <div id="n-1" class="campos">
-                    <label for="ititulo">Titulo</label>
+                    <label for="ititulo">Título</label>
                     <input type="text" id="ititulo" name="titulo">
                     <div class="erros erro-msg">O titulo não pode estar em branco</div>
                 </div>
@@ -161,24 +162,26 @@
                 </div>
                 <div id="n-3">
                     <input type="submit" value="Postar">
-                </div>
-                
+                </div>                
             </form>
         </div>
+        </div>        
     </section>
     <section class="posts">
-        <h2>Noticias</h2>
-        <form action="buscar_post" method="GET" id="formBusca">
-            <label for="inputTermo">Buscar por título: </label>
-            <input type="text" name="titulo" id="inputTermo">
-            <input type="submit" value="Buscar">
-        </form>
-        <ul id="postagens">
-            {{#each noticias}}
-            <li id="cTitulo">{{title}}</li>
-            <li id="cConteudo">{{content}}</li>
-            {{/each}}
-        </ul>
+        <div id="buscarNoticias">
+            <h2>Noticias</h2>
+            <form action="buscar_post" method="GET" id="formBusca">
+                <label for="inputTermo">Buscar por título: </label>
+                <input type="text" name="termo" id="inputTermo">
+                <input type="submit" value="Buscar" id="buscarTermo">
+            </form>
+        </div>
+        {{#each noticias}}
+            <article>
+                <h2>{{title}}</h2>
+                <p>{{content}}</p>
+            </article>
+        {{/each}}
     </section>
     <img class="chat" src="imgs/chat.png">
     <script src="script/encrypt.js"></script>

@@ -58,8 +58,8 @@ app.post('/cadastrar_noticia', async (req, res) => {
 })
 
 app.get('/buscar_post', async (req, res) => {
-    let titulo = req.query.titulo
-    const noticias = await Noticias.find(titulo)
+    let termo = req.query.termo
+    const noticias = await Noticias.find(termo)
     res.render('index', {noticias: noticias})
 })
 

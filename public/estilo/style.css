@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&family=Quicksand:wght@500;600&display=swap');
+
 @font-face {
     font-family: 'BrownBold';
     src: url('../fonts/BrownBold.ttf');
@@ -667,12 +669,23 @@ form input[type="submit"]{
     border: none;
     color: white;
     cursor: pointer;
-    background-color: rgb(65, 65, 65);
+    background-color: rgb(17, 17, 17);
     font-weight: 700;
 }
 
+#ititulo {
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+#iconteudo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3em;
+    text-align: justify;
+}
+
 form input[type="submit"]:hover{
-    background-color: gray;
+    background-color: rgba(63, 156, 102, 0.856);
     color: white;
 }
 
@@ -691,6 +704,130 @@ form#formBusca label {
 form#formBusca input {
     margin: 10px auto;
     width: 500px;
+}
+
+.noticias{
+    display: flex;
+    height: 600px;
+    background-image: url(../imgs/bgnoticias.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-shadow: 2px 2px #00000065;
+}
+
+#blockern {
+    position: relative;
+    height: 600px;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.noticias h3{
+    text-align: center;
+    font-size: 35px;
+    margin: 30px;
+    font-family: 'BrownBold';
+    color: white;
+}
+
+.area-noticias{
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.form-noticias{
+    height: 400px;
+    margin: 0 auto;
+}
+
+.form-noticias label{
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    color: white
+}
+
+.form-noticias #n-1 input{
+    height: 40px;
+    width: 600px;
+    border-radius: 5px;
+    padding: 0;
+    box-shadow: 10px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.form-noticias #n-2 textarea{
+    height: 200px;
+    width: 600px;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+    box-shadow: 10px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+.form-noticias #n-3 input{
+    display: flex;
+    height: 50px;
+    width: 100px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.posts{
+    background-color: rgb(151, 48, 48);
+    padding: 10px;
+}
+
+#buscarNoticias {
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+#buscarNoticias h2 {
+    font-family: 'Nunito Sans', sans-serif;
+    text-align: center;
+    font-size: 2.3em;
+}
+
+#inputTermo {
+    height: 35px;
+}
+
+#buscarTermo:hover {
+    background-color: rgba(0, 0, 0);
+}
+
+.posts article {
+    background-color: rgb(230, 230, 230);
+    margin: 20px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.521);
+    padding: 10px;
+}
+
+.posts article > h2 {
+    text-align: center;
+    padding: 5px;
+    font: 2.5em 'Oswald', sans-serif;
+    text-indent: 50px;
+}
+
+.posts article > p {
+    font-family: 'Quicksand', sans-serif;
+    text-align: justify;
+    text-indent: 2em;
+    margin: 15px auto;
+    padding: 15px;
 }
 
 @media(max-width: 1280px) {
@@ -751,106 +888,4 @@ form#formBusca input {
         margin: 20px;
         padding: 13px;
     }
-}
-
-.noticias{
-    display: flex;
-    height: 600px;
-}
-
-.noticias h3{
-    text-align: center;
-    font-size: 30px;
-    margin: 20px;
-}
-
-.area-noticias{
-    height: 500px;
-    margin: 0 auto;
-}
-
-.form-noticias{
-    height: 400px;
-    margin: 0 auto;
-}
-
-.form-noticias label{
-    font-size: 20px;
-    display: flex;
-}
-
-.form-noticias #n-1 input{
-    height: 40px;
-    width: 600px;
-    border-radius: 5px;
-    padding: 0;
-}
-
-.form-noticias #n-2 textarea{
-    height: 200px;
-    width: 600px;
-    outline: none;
-    resize: none;
-    border-radius: 5px;
-}
-
-.form-noticias #n-3 input{
-    display: flex;
-    height: 50px;
-    width: 100px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.noticias button{
-    display: flex;
-    height: 50px;
-    width: 100px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-}
-.posts{
-    height: 500px;
-    background-color: darkgray;
-    padding: 10px;
-}
-
-.posts h2{
-    display: flex;
-    width: auto;
-    height: 50px;
-    font-size: 30px;
-    border: 2px solid black;
-    border-radius: 5px;
-}
-
-#postagens{
-    padding: 10px;
-    font-size: 30px;
-    list-style-type: none;
-    margin: 10px 0;
-
-}
-
-#postagens #cTitulo{
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-#postagens #cConteudo{
-    font-size: 15px;
-    margin: 5px;
-}
-
-#postagens:hover{
-    background-color: gray;
 }
