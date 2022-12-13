@@ -19,8 +19,8 @@ module.exports = class Noticias {
         return result
     }
 
-    static async insert(title, content) {
-        if (title && content){
+    static async insert(title, content, image) {
+        if (title && content && image){
             let date = new Date().toLocaleString("pt-br")
             const conn = await MongoClient.connect('mongodb://localhost:27017/ProjetoWeb'),
                   db = conn.db()
@@ -29,6 +29,7 @@ module.exports = class Noticias {
                     .insertOne({
                                 title: title,
                                 content: content,
+                                image: image,
                                 pTime: date
                                })
             conn.close()

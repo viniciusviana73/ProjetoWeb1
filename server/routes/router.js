@@ -1,7 +1,8 @@
 let express = require('express'),
     router = express.Router(),
     Users = require('../models/Users'),
-    Noticias = require('../models/Noticias')
+    Noticias = require('../models/Noticias'),
+    upload = require('../models/Uploads')
 
 router.get('/', async (req, res) => {
     const noticias = await Noticias.find()
@@ -35,15 +36,16 @@ router.post('/logar', async (req, res) => {
     }
 })
 
-router.post('/cadastrar_noticia', async (req, res) => {
-    let title = req.body.titulo,
+router.post('/cadastrar_noticia', upload.single('image'), async (req, res) => {
+    let image = req.file.filename,
+        title = req.body.titulo,
         content = req.body.conteudo
 
     if (!req.body || title == '' || content == '') {
         res.status(400)
         res.end()
     } else {
-        await Noticias.insert(title, content)
+        await Noticias.insert(title, content, image)
         res.redirect('/')
     }
 })

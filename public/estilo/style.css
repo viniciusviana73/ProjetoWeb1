@@ -708,7 +708,7 @@ form#formBusca input {
 
 .noticias{
     display: flex;
-    height: 600px;
+    height: 700px;
     background-image: url(../imgs/bgnoticias.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -717,7 +717,7 @@ form#formBusca input {
 
 #blockern {
     position: static;
-    height: 600px;
+    height: 700px;
     width: 100vw;
     top: 0;
     left: 0;
@@ -736,7 +736,7 @@ form#formBusca input {
 }
 
 .area-noticias{
-    height: 500px;
+    height: 600px;
     margin: 0 auto;
     display: flex;
 }
@@ -896,3 +896,35 @@ form#formBusca input {
         padding: 13px;
     }
 }
+
+.imgNoticia{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    margin: 20px auto;
+}
+
+#fileImg label{
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    color: white
+}
+
+#fileImg{
+    display: block;
+    margin: auto;
+}
+
+#fileImg input[type="file"]{
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: 0 auto 50px;
+    padding: 5px;
+    border: 2px solid gray;
+    background-color: white;
+    box-shadow: 10px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
