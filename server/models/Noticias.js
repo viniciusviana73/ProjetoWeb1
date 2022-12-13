@@ -1,8 +1,13 @@
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient;
+const dotenv = require('dotenv');
+dotenv.config();
+const MongoConnect = process.env.MongoClient;
+const client = new MongoClient(MongoConnect);
+
 
 module.exports = class Noticias {
     static async find(termo) {
-        const conn = await MongoClient.connect('mongodb://localhost:27017/ProjetoWeb'),
+        const conn = await client.connect(),
               db = conn.db()
         let result
         
@@ -22,7 +27,7 @@ module.exports = class Noticias {
     static async insert(title, content, image) {
         if (title && content && image){
             let date = new Date().toLocaleString("pt-br")
-            const conn = await MongoClient.connect('mongodb://localhost:27017/ProjetoWeb'),
+            const conn = await client.connect(),
                   db = conn.db()
 
             await db.collection('Noticias')

@@ -1,8 +1,12 @@
 const MongoClient = require('mongodb').MongoClient
+const dotenv = require('dotenv');
+dotenv.config();
+const MongoConnect = process.env.MongoClient;
+const client = new MongoClient(MongoConnect);
 
 module.exports = class Users {
     static async find(login, password) {
-        const conn = await MongoClient.connect('mongodb://localhost:27017/ProjetoWeb'),
+        const conn = await client.connect(),
               db = conn.db()
         let res = false
         
@@ -22,7 +26,7 @@ module.exports = class Users {
     }
 
     static async cadastrar(login, password) {
-        const conn = await MongoClient.connect('mongodb://localhost:27017/ProjetoWeb'),
+        const conn = await client.connect(),
               db = conn.db()
         
         if (await db.collection('Users').insertOne({login: login, password: password})) {
