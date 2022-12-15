@@ -26,6 +26,7 @@ let btnDeslogar = document.querySelector('#btnDeslogar')
 let painelEncrypt = document.querySelector('#painelEncrypt')
 let msgInicial = document.querySelector('#msgInicial')
 
+/*
 msgInicial.style.fontSize = '30px'
 msgInicial.style.margin = '150px auto'
 msgInicial.style.padding = '15px'
@@ -52,7 +53,7 @@ function deslogar(){
   localStorage.setItem("logado","false");
   window.location.reload(true);
 }
-
+*/
 
 form.onsubmit = (e)=>{
   

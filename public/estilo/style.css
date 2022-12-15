@@ -389,7 +389,8 @@ section#login {
 }
 
 #infoCad:hover{
-    color: darkgray;
+    color: rgb(36, 180, 0);
+    transition: 0.35s;
 }
 
 section#cadastro {
@@ -461,16 +462,20 @@ div#btnDeslogar a {
 }
 
 section#login header {
+    background-image: url(../imgs/loginbg.jpg);
+    background-size: cover;
     width: 150px;
     height: 150px;
     margin: auto;
-    background-color: black;
+    background-color: transparent;
     border-radius: 50%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.400);
     box-sizing: border-box;
 }
 
 section#cadastro header {
+    background-image: url(../imgs/loginbg.jpg);
+    background-size: cover;
     width: 150px;
     height: 150px;
     margin: auto;
@@ -569,7 +574,7 @@ form .campos.shake{
 }
 
 #painelEncrypt {
-    display: none;
+    display: block;
     max-height: 50%;
 }
 
@@ -685,7 +690,8 @@ form input[type="submit"]{
 }
 
 form input[type="submit"]:hover{
-    background-color: rgba(63, 156, 102, 0.856);
+    background-color: rgba(53, 182, 107, 0.856);
+    transition: 0.25s;
     color: white;
 }
 
@@ -928,4 +934,3 @@ form#formBusca input {
     background-color: white;
     box-shadow: 10px 3px 5px rgba(0, 0, 0, 0.4);
 }
-

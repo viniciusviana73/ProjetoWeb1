@@ -2,11 +2,26 @@ let express = require('express'),
     router = express.Router(),
     Users = require('../models/Users'),
     Noticias = require('../models/Noticias'),
-    upload = require('../models/Uploads')
+    upload = require('../models/Uploads'),
+    session = require('express-session')
+
+router.use(session({
+    secret: 'supersecretsessionkey',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {secure: false}
+}))
 
 router.get('/', async (req, res) => {
-    const noticias = await Noticias.find()
-    res.render('index', { noticias: noticias })
+    if (req.session && req.session.login){
+        console.log(`\n -> Variável de session.login da requisição: ${req.session.login}`)
+        const noticias = await Noticias.find()
+        //console.log(req.session)
+        res.render('index', { noticias: noticias, user: req.session.login })
+    } else {
+        console.log('\n -> Requisição de acesso não possui variável de session.login')
+        res.render('login')
+    }
 });
 
 router.post('/cadastrar_user', async (req, res) => {
@@ -26,8 +41,9 @@ router.post('/logar', async (req, res) => {
           password = req.body.password
 
     if (await Users.find(login, password)) {
-        res.cookie('login', login)
-        //console.log(`Logado! Cookies criados. -> ${req.cookies.login}`)
+        req.session.login = login
+        console.log(`Variável de session.login criada -> ${req.session.login}`)
+        // Exibir mensagem de sucesso antes de redirecionar para index
         res.redirect('/')
     } else {
         console.log('Erro ao logar.')
