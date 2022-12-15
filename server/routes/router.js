@@ -52,6 +52,10 @@ router.post('/cadastrar_noticia', upload.single('image'), async (req, res) => {
 
 router.get('/buscar_post', async (req, res) => {
     let termo = req.query.termo
+    if (termo == '') {
+        console.log('Campo de busca vazio')
+        res.status(400)
+    }
     const noticias = await Noticias.find(termo)
     res.render('index', { noticias: noticias })
 })

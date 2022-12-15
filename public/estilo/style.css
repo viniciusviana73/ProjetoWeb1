@@ -918,6 +918,7 @@ form#formBusca input {
 }
 
 #fileImg input[type="file"]{
+    font-size: 0.85em;
     display: flex;
     width: auto;
     height: auto;
