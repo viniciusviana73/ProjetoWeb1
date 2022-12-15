@@ -10,7 +10,7 @@ let resultado       = document.querySelector('#resultado')
 async function encryptData() {
     if (checkInput(textAreaEncrypt, inputKeyC)){
         try {
-            const url      = 'https://classify-web.herokuapp.com/api/encrypt';
+            const url      = 'https://classify.yurace.pro/api/encrypt';
             const jsonData = JSON.stringify({ 
                 data: String(textAreaEncrypt.value), 
                 key:  String(inputKeyC.value)
@@ -33,7 +33,7 @@ async function encryptData() {
 async function decryptData(){
     if (checkInput(textAreaDecrypt, inputKeyU)){
         try {
-            const url      = 'https://classify-web.herokuapp.com/api/decrypt';
+            const url      = 'https://classify.yurace.pro/api/decrypt';
             const jsonData = JSON.stringify({ 
                 data: String(textAreaDecrypt.value), 
                 key:  String(inputKeyU.value)
@@ -71,7 +71,7 @@ function checkInput(textArea, inputKey){
 function genKey(){
     try {
         var xhr = new XMLHttpRequest();
-        xhr.open ("GET", `https://classify-web.herokuapp.com/api/keygen`, true);
+        xhr.open ("GET", `https://classify.yurace.pro/api/keygen`, true);
         xhr.setRequestHeader ("Accept", "application/json");
         xhr.onreadystatechange = function(){
         if((xhr.readyState == 0 || xhr.readyState == 4) && xhr.status == 200)
