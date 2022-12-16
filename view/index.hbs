@@ -67,7 +67,7 @@
                     <textarea name="txtEncrypt" id="txtEncrypt" cols="30" rows="10" placeholder="Insira o texto aqui!"></textarea> <br>
                     Insira a chave para criptografia ou gere uma automaticamente clicando na chave abaixo:
                     <div class="keySet">
-                        <input type="text" name="inputKeyC" id="inputKeyC" placeholder="Crie ou gere uma chave!">
+                        <input type="text" name="inputKeyC" id="inputKeyC" placeholder="Crie ou gere uma chave!" required>
                         <button id="btnKey" type="button" onclick="genKey()"><img src="imgs/keyIcon.png" title="Gerar chave aleatória"></button>
                     </div>
                     <input class="button" type="button" value="Criptografar" onclick="encryptData()">
