@@ -51,10 +51,10 @@
         <div id="btnLogado">
             <a href="#logado" id="btnLogado">Logado!</a>
         </div>
-        <div id="btnDeslogar">
-            <a onclick="deslogar()" href="#deslogar" id="btnDeslogar">Desconectar</a>
-        </div>
         -->
+        <div id="btnDeslogar">
+            <a href="/logout" id="btnDeslogar">Desconectar</a>
+        </div>
         <h1>Bem vindo (a)!</h1>
         <div id="painelEncrypt">
             <div id="menuEncrypt">
@@ -86,6 +86,7 @@
             </div>
         </div>
     </section>
+    {{#if admin}}
     <section class="noticias">
         <div id="blockern">
             <div class="area-noticias">
@@ -112,6 +113,7 @@
         </div>
         </div>        
     </section>
+    {{/if}}
     <section class="posts">
         <div id="buscarNoticias">
             <h2>Notícias</h2>
