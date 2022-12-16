@@ -848,7 +848,8 @@ form#formBusca input {
 }
 
 .imgNoticia{
-    max-height: 350px;
+    max-width: 600px;
+    max-height: 500px;
     display: flex;
     margin: 20px auto;
 }
@@ -886,6 +887,10 @@ form#formBusca input {
         background-size: 160%;
         background-repeat: no-repeat;
         overflow: hidden;
+    }
+
+    .imgNoticia{
+        max-width: 600px;
     }
 }
 
@@ -941,6 +946,10 @@ form#formBusca input {
     form#formBusca input {
         width: 400px;
     }
+
+    .imgNoticia{
+        max-width: 400px;
+    }
 }
 
 @media(max-width: 600px){
@@ -959,5 +968,9 @@ form#formBusca input {
 
     form#formBusca input {
         width: 200px;
+    }
+
+    .imgNoticia{
+        max-width: 250px;
     }
 }
