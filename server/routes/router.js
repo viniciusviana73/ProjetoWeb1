@@ -53,8 +53,13 @@ router.post('/logar', async (req, res) => {
 })
 
 router.post('/cadastrar_noticia', upload.single('image'), async (req, res) => {
-    let image = req.file.filename,
-        title = req.body.titulo,
+    if (req.file) {
+        image = req.file.filename
+    }else{
+        image = "logo-noticia.png"
+    }
+
+    let title = req.body.titulo,
         content = req.body.conteudo
 
     if (!req.body || title == '' || content == '') {
