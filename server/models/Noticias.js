@@ -3,12 +3,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 const MongoConnect = process.env.MONGO_URI;
 const client = new MongoClient(MongoConnect);
-
+const dbName = "Projeto_Web"
 
 module.exports = class Noticias {
     static async find(termo) {
-        const conn = await client.connect(),
-              db = conn.db()
+        await client.connect()
+        const db = client.db(dbName),
+              col = db.collection("Noticias")
         let result
         
         if (termo) {
@@ -20,24 +21,24 @@ module.exports = class Noticias {
         } else {
             result = await db.collection('Noticias').find().toArray()
         }
-        conn.close()
+        await client.close();
         return result
     }
 
     static async insert(title, content, image) {
         if (title && content && image){
+            await client.connect()
+            const db = client.db(dbName),
+                  col = db.collection("Noticias")
             let date = new Date().toLocaleString("pt-br")
-            const conn = await client.connect(),
-                  db = conn.db()
-
-            await db.collection('Noticias')
-                    .insertOne({
+            
+            await col.insertOne({
                                 title: title,
                                 content: content,
                                 image: image,
                                 pTime: date
-                               })
-            conn.close()
+                                })
+            await client.close();
             console.log('Matéria cadastrada!')
         } else {
             console.log('Preencha todos os campos.')

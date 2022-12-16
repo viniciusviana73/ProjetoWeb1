@@ -15,20 +15,29 @@ router.use(session({
 router.get('/', async (req, res) => {
     if (req.session && req.session.login){
         console.log(`\n -> Variável de session.login da requisição: ${req.session.login}`)
-        const noticias = await Noticias.find()
-        //console.log(req.session)
-        res.render('index', { noticias: noticias, user: req.session.login })
+        if (req.session.userTypeAdmin) {
+            const noticias = await Noticias.find()
+            console.log(req.session)
+            res.render('index', { noticias: noticias, user: req.session.login, admin: req.session.userTypeAdmin })
+        } else {
+            const noticias = await Noticias.find()
+            console.log(req.session)
+            res.render('index', { noticias: noticias, user: req.session.login })
+        }
     } else {
         console.log('\n -> Requisição de acesso não possui variável de session.login')
+        console.log(req.session)
         res.render('login')
     }
 });
 
 router.post('/cadastrar_user', async (req, res) => {
     const login = req.body.login,
-          password = req.body.password
+          password = req.body.password,
+          username = req.body.username,
+          userType = 'normal'
 
-    if (await Users.cadastrar(login, password)) {
+    if (await Users.cadastrar(username, login, password, userType)) {
         console.log('Usuário cadastrado!')
         res.redirect('/')
     } else {
@@ -43,6 +52,9 @@ router.post('/logar', async (req, res) => {
     if (await Users.find(login, password)) {
         req.session.login = login
         console.log(`Variável de session.login criada -> ${req.session.login}`)
+        if (await Users.checkType(login) == 'admin') {
+            req.session.userTypeAdmin = true
+        }
         // Exibir mensagem de sucesso antes de redirecionar para index
         res.redirect('/')
     } else {
@@ -74,6 +86,13 @@ router.get('/buscar_post', async (req, res) => {
     }
     const noticias = await Noticias.find(termo)
     res.render('index', { noticias: noticias })
+})
+
+router.get('/logout', (req, res) => {
+    req.session.destroy(() => {
+        console.log('Sessão destruída!')
+      })
+    res.redirect('/')
 })
 
 module.exports = router

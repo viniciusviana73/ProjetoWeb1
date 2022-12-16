@@ -438,7 +438,9 @@ div#btnLogado a {
 }
 
 div#btnDeslogar {
-    display: none;
+    display: block;
+    position: absolute;
+    right: 10px;
 }
 
 div#btnDeslogar a {
