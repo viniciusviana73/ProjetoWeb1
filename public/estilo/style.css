@@ -749,7 +749,7 @@ form#formBusca input {
 
 .form-noticias{
     height: 400px;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 
 .form-noticias label{
@@ -761,6 +761,8 @@ form#formBusca input {
 }
 
 .form-noticias #n-1 input{
+    display: block;
+    margin: auto;
     height: 40px;
     width: 600px;
     border-radius: 5px;
@@ -769,6 +771,8 @@ form#formBusca input {
 }
 
 .form-noticias #n-2 textarea{
+    display: block;
+    margin: auto;
     height: 200px;
     width: 600px;
     outline: none;
@@ -843,6 +847,37 @@ form#formBusca input {
     text-align: right;
 }
 
+.imgNoticia{
+    max-height: 350px;
+    display: flex;
+    margin: 20px auto;
+}
+
+#fileImg label{
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    color: white
+}
+
+#fileImg{
+    display: block;
+    margin: auto;
+}
+
+#fileImg input[type="file"]{
+    font-size: 0.85em;
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: 0 auto 50px;
+    padding: 5px;
+    border: 2px solid gray;
+    background-color: white;
+    box-shadow: 10px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
 @media(max-width: 1280px) {
     main {
         background-repeat: no-repeat;
@@ -894,6 +929,18 @@ form#formBusca input {
     #menuEncrypt {
         padding: 0px;
     }
+
+    .form-noticias #n-1 input {
+        width: 500px;
+    }
+
+    .form-noticias #n-2 textarea {
+        width: 500px;
+    }
+
+    form#formBusca input {
+        width: 400px;
+    }
 }
 
 @media(max-width: 600px){
@@ -901,36 +948,16 @@ form#formBusca input {
         margin: 20px;
         padding: 13px;
     }
-}
 
-.imgNoticia{
-    height: 200px;
-    width: 200px;
-    display: flex;
-    margin: 20px auto;
-}
+    .form-noticias #n-1 input {
+        width: 300px;
+    }
 
-#fileImg label{
-    font-size: 20px;
-    display: block;
-    text-align: center;
-    font-family: 'Nunito Sans', sans-serif;
-    color: white
-}
+    .form-noticias #n-2 textarea {
+        width: 300px;
+    }
 
-#fileImg{
-    display: block;
-    margin: auto;
-}
-
-#fileImg input[type="file"]{
-    font-size: 0.85em;
-    display: flex;
-    width: auto;
-    height: auto;
-    margin: 0 auto 50px;
-    padding: 5px;
-    border: 2px solid gray;
-    background-color: white;
-    box-shadow: 10px 3px 5px rgba(0, 0, 0, 0.4);
+    form#formBusca input {
+        width: 200px;
+    }
 }
