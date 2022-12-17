@@ -948,7 +948,7 @@ form#formBusca input {
         font-size: 18px;
     }
 
-    header, #navmenu, #navbtn {
+    header.logiHeader, #navmenu, #navbtn {
         display: none;
     }
 
