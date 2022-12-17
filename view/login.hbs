@@ -44,13 +44,15 @@
     <section id="cadastro">
         <div class="blocker" onclick="hideCadastro(), showLogin()"></div>
         <div id="campo-form2">
+            <button id="btHideCad" onclick="hideCadastro(), showLogin()"></button>
             <header>
                 <!--Logotipo-->
             </header>
             <form action="cadastrar_user" id="iCadastros" method="POST">
                 <div class="campos nome">
                     <div class="area-input">
-                        <input type="text" name="username" id="iusername" placeholder="Nome de usuário">
+                        <input type="text" name="username" id="iusername" placeholder="Nome de usuário" required>
+                        <span class="icone material-symbols-outlined">person</span>
                     </div>
                 </div>
                 <div class="campos email">

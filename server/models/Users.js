@@ -38,15 +38,19 @@ module.exports = class Users {
             const db = client.db(dbName),
                   col = db.collection("Users")
 
-            if (await col.insertOne({
+            if (!await this.checkMail(login)) {
+                if (await col.insertOne({
                                     username: username,
                                     login: login, 
                                     password: password,
                                     userType: userType
                                     })) {
-                return true
+                    return true
+                }
+            } else {
+                console.log(`E-mail já cadastrado no banco de dados.`)
+                return false
             }
-            return false
         } catch (error) {
             console.log(`Erro Users.cadastrar() -> ${error}`)
         } finally {
@@ -66,5 +70,20 @@ module.exports = class Users {
         } finally {
             await client.close()
         }
+    }
+
+    static async checkMail(login) {
+        try {
+            const db = client.db(dbName),
+                  col = db.collection("Users")            
+            if (await col.findOne({login: login})) {
+                // E-mail já cadastrado
+                return true
+            }
+            // E-mail disponível
+            return false
+        } catch (error) {
+            console.log(`Erro Users.checkMail() -> ${error}`)
+        } 
     }
 }

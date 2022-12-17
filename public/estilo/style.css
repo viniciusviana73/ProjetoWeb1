@@ -255,7 +255,7 @@ section#criptografia h1 {
     padding: 20px;
 }
 
-section#criptografia a {
+section#criptografia a.menuE {
     margin: 60px;
     padding: 10px;
     text-align: center;
@@ -264,7 +264,7 @@ section#criptografia a {
     color: white;
 }
 
-section#criptografia a:hover {
+section#criptografia a.menuE:hover {
     background-color: white;
     color: black;
     border-radius: 15px;
@@ -326,6 +326,22 @@ section#login.open {
 
 section#cadastro.open {
     display: flex;
+}
+
+#btHideCad {
+    background-color: transparent;
+    border-style: none;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    background-image: url(../imgs/back.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+}
+
+#btHideCad:hover {
+    cursor: pointer;
 }
 
 .button {
@@ -422,36 +438,29 @@ div#btnLogin a {
     top: 30px;
 }
 
-div#btnLogado {
-    display: none;
-    position: absolute;
-    padding: 0px;
-    margin: 0px;
-    right: 0px;
-}
-
-div#btnLogado a {
-    pointer-events: none;
-    position: relative;
-    font-family: 'BrownBold';
-    top: 30px;
-}
-
-div#btnDeslogar {
+div.btnDeslogar {
     display: block;
     position: absolute;
-    right: 10px;
+    right: 15px;
 }
 
-div#btnDeslogar a {
+a.btnDeslogar {
+    padding: 10px;
+    text-decoration: none;
     position: relative;
+    font-size: 0.83em;
     font-family: 'BrownBold';
-    top: 30px;
-    color: green;
+    top: 25px;
+    color: rgb(211, 53, 53);
     background-color: white;
     border-radius: 18px;
 }
 
+a.btnDeslogar:hover {
+    background-color: rgb(207, 207, 207);
+    color: rgb(68, 68, 68);
+    transition: 0.15s;
+}
 
 .blocker {
     position: fixed;
@@ -460,8 +469,24 @@ div#btnDeslogar a {
     bottom: 0;
     right: 0;
     content: ' ';
-    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg, 
+                                    #200E78 0%, 
+                                    #576fe6 25%, 
+                                    #9844b7 51%, 
+                                    #a11146 100%
+                            );      
+    animation: AnimateBG 10s ease infinite;
 }
+
+@keyframes AnimateBG { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
 
 section#login header {
     background-image: url(../imgs/loginbg.jpg);
@@ -647,6 +672,8 @@ form .campos .erro-msg{
     margin-top: 5px;
     color: rgba(255, 0, 0, 0.700);
     text-align: left;
+    font-family: 'BrownBold';
+    font-size: 1.2em;
 }
 
 #iCadastros .campos .erro-msg{
@@ -797,13 +824,15 @@ form#formBusca input {
 }
 
 .posts{
-    background-color: rgb(151, 48, 48);
-    padding: 10px;
+    background-image: url(../imgs/bgnews.jpg);
+    background-size: auto;
 }
 
 #buscarNoticias {
     padding: 10px;
-    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.96);
+    color: white;
+    text-shadow: 2px 2px #00000045;
 }
 
 #buscarNoticias h2 {
@@ -816,13 +845,18 @@ form#formBusca input {
     height: 35px;
 }
 
+#buscarTermo {
+    background-color: #576fe6;
+}
+
 #buscarTermo:hover {
-    background-color: rgba(0, 0, 0);
+    background-color: #1c3094;
+    transition: 0.3s;
 }
 
 .posts article {
     background-color: rgb(230, 230, 230);
-    margin: 20px 0px;
+    margin: 0px 20px;
     border: 1px solid rgba(0, 0, 0, 0.521);
     padding: 10px;
 }
@@ -952,10 +986,12 @@ form#formBusca input {
     .imgNoticia{
         max-width: 400px;
     }
+
+
 }
 
 @media(max-width: 600px){
-    section#criptografia a {
+    section#criptografia a.menuE {
         margin: 20px;
         padding: 13px;
     }
@@ -974,5 +1010,9 @@ form#formBusca input {
 
     .imgNoticia{
         max-width: 250px;
+    }
+
+    a.btnDeslogar {
+        padding: 7px;
     }
 }

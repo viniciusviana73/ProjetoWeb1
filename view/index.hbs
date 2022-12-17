@@ -44,22 +44,14 @@
         </div>
     </main>
     <section id="criptografia">
-        <!--
-        <div id="btnLogin">
-            <a href="#login" onclick="showLogin()" id="btnLogin">Fazer login</a>
-        </div>
-        <div id="btnLogado">
-            <a href="#logado" id="btnLogado">Logado!</a>
-        </div>
-        -->
-        <div id="btnDeslogar">
-            <a href="/logout" id="btnDeslogar">Desconectar</a>
+        <div class="btnDeslogar">
+            <a href="/logout" class="btnDeslogar">Logout</a>
         </div>
         <h1>Bem vindo (a)!</h1>
         <div id="painelEncrypt">
             <div id="menuEncrypt">
-                <a href="#divCripto" id="targetEncrypt">Criptografar</a>
-                <a href="#divUncripto">Descriptografar</a>
+                <a href="#divCripto" id="targetEncrypt" class="menuE">Criptografar</a>
+                <a href="#divUncripto" class="menuE">Descriptografar</a>
             </div>
             <div id="divCripto">
                 <p>
@@ -124,6 +116,7 @@
             </form>
         </div>
         {{#each noticias}}
+        <br>
             <article>
                 <h2>{{title}}</h2>
                 <p class="content">{{content}}</p>
@@ -134,6 +127,8 @@
     </section>
     <img class="chat" src="imgs/chat.png">
     <script src="script/encrypt.js"></script>
-    <script src="script/login.js"></script>
+    {{#if admin}}
+    <script src="script/noticia.js"></script>
+    {{/if}}
 </body>
 </html>
