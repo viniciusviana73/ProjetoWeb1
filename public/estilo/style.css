@@ -744,7 +744,8 @@ form#formBusca input {
 .noticias{
     display: flex;
     height: 700px;
-    background-image: url(../imgs/bgnoticias.jpg);
+    background-image: url(../imgs/bgnews.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
     background-size: cover;
     text-shadow: 2px 2px #00000065;
@@ -759,7 +760,29 @@ form#formBusca input {
     bottom: 0;
     right: 0;
     content: ' ';
-    background: rgba(0, 0, 0, 0.6);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.96) , rgba(0, 0, 0, 0.99));
+}
+
+#buscarNoticias {
+    padding: 10px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.99) , rgba(0, 0, 0, 0.95));
+    color: white;
+    text-shadow: 2px 2px #00000045;
+}
+
+.posts{
+    background-image: url(../imgs/bgnews.jpg);
+    background-size: auto;
+}
+
+.divartigos {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95) , rgba(0, 0, 0, 0.85));
+}
+
+.artigos {
+    max-width: 700px;
+    display: block;
+    margin: auto;
 }
 
 .noticias h3{
@@ -823,18 +846,6 @@ form#formBusca input {
     font-family: 'Nunito Sans', sans-serif;
 }
 
-.posts{
-    background-image: url(../imgs/bgnews.jpg);
-    background-size: auto;
-}
-
-#buscarNoticias {
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.96);
-    color: white;
-    text-shadow: 2px 2px #00000045;
-}
-
 #buscarNoticias h2 {
     font-family: 'Nunito Sans', sans-serif;
     text-align: center;
@@ -856,7 +867,6 @@ form#formBusca input {
 
 .posts article {
     background-color: rgb(230, 230, 230);
-    margin: 0px 20px;
     border: 1px solid rgba(0, 0, 0, 0.521);
     padding: 10px;
 }
@@ -913,6 +923,43 @@ form#formBusca input {
     border: 2px solid gray;
     background-color: white;
     box-shadow: 10px 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+div.admCadBlocker {
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a#criarAdmin {
+    font-family: 'BrownLight', Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    top: 20px;
+    left: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(0, 255, 0, 0.3);
+}
+
+a#criarAdmin:hover {
+    transition: 0.15s;
+    background-color: rgba(8, 255, 8, 0.582);
+}
+
+p#pWrnAdm {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: rgb(44, 93, 255);
 }
 
 @media(max-width: 1280px) {
@@ -1014,5 +1061,21 @@ form#formBusca input {
 
     a.btnDeslogar {
         padding: 7px;
+    }
+
+    .noticias h3{ 
+        margin-top: 60px;
+    }
+
+    a#criarAdmin {
+        left: 20px;
+    }
+
+    #campo-form {
+        width: 300px;
+    }
+
+    #campo-form2 {
+        width: 300px;
     }
 }

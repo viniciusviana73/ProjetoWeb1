@@ -58,6 +58,20 @@ module.exports = class Users {
         }
     }
 
+    static async getUsername(login) {
+        try {
+            await client.connect()
+            const db = client.db(dbName),
+                  col = db.collection("Users")            
+                  let users = await col.findOne({login: login})
+            return users.username
+        } catch (error) {
+            console.log(error)
+        } finally {
+            await client.close()
+        }
+    }
+
     static async checkType(login) {
         try {
             await client.connect()

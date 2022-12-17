@@ -17,7 +17,7 @@ let btnLogin = document.querySelector('#btnLogin')
 let btnLogado = document.querySelector('#btnLogado')
 let areaCadastro = document.querySelector('#cadastro')
 let btnDeslogar = document.querySelector('#btnDeslogar')
-let painelEncrypt = document.querySelector('#painelEncrypt')
+//let painelEncrypt = document.querySelector('#painelEncrypt')
 
 form.onsubmit = (e)=>{
   

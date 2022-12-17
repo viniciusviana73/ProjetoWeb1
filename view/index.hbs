@@ -47,7 +47,7 @@
         <div class="btnDeslogar">
             <a href="/logout" class="btnDeslogar">Logout</a>
         </div>
-        <h1>Bem vindo (a)!</h1>
+        <h1>Bem vindo (a), {{username}}!</h1>
         <div id="painelEncrypt">
             <div id="menuEncrypt">
                 <a href="#divCripto" id="targetEncrypt" class="menuE">Criptografar</a>
@@ -81,29 +81,66 @@
     {{#if admin}}
     <section class="noticias">
         <div id="blockern">
+            <a href="#cadastro" onclick="showCadastroAdmin()" id="criarAdmin">Criar Admin</a>
             <div class="area-noticias">
-            <form action="cadastrar_noticia" method="POST" class="form-noticias" enctype="multipart/form-data">
-                <h3>Cadastrar uma notícia</h3>
-                <div id="n-1" class="campos">
-                    <label for="ititulo">Título</label>
-                    <input type="text" id="ititulo" name="titulo">
-                    <div class="erros erro-msg">O titulo não pode estar em branco</div>
+                <form action="cadastrar_noticia" method="POST" class="form-noticias" enctype="multipart/form-data">
+                    <h3>Cadastrar uma notícia</h3>
+                    <div id="n-1" class="campos">
+                        <label for="ititulo">Título</label>
+                        <input type="text" id="ititulo" name="titulo">
+                        <div class="erros erro-msg">O titulo não pode estar em branco</div>
+                    </div>
+                    <div id="n-2" class="campos">
+                        <label for="iconteudo">Conteúdo</label>
+                        <textarea id="iconteudo" name="conteudo" rows="10" cols="100"></textarea>
+                        <div class="erros erro-msg">O conteúdo não pode estar em branco</div>
+                    </div>
+                    <div id="fileImg">
+                        <label for="txtImage">Imagem</label>
+                        <input type="file" name="image">
+                    </div>
+                    <div id="n-3">
+                        <input type="submit" value="Postar">
+                    </div>                
+                </form>
+            </div>
+        </div>        
+    </section>
+    <section id="cadastro">
+        <div class="admCadBlocker" onclick="hideCadastro()"></div>
+        <div id="campo-form2">
+            <button id="btHideCad" onclick="hideCadastro()"></button>
+            <p id="pWrnAdm">* Apenas admins podem cadastrar novos admins</p>
+            <header>
+                <!--Logotipo-->
+            </header>
+            <form action="cadastrar_admin" id="iCadastros" method="POST">
+                <div class="campos nome">
+                    <div class="area-input">
+                        <input type="text" name="username" id="iusername" placeholder="Nome de usuário" required>
+                        <span class="icone material-symbols-outlined">person</span>
+                    </div>
                 </div>
-                <div id="n-2" class="campos">
-                    <label for="iconteudo">Conteúdo</label>
-                    <textarea id="iconteudo" name="conteudo" rows="10" cols="100"></textarea>
-                    <div class="erros erro-msg">O conteúdo não pode estar em branco</div>
+                <div class="campos email">
+                    <div class="area-input">
+                        <input type="email" name="login" id="iemailCad" placeholder="E-mail" required>
+                        <span class="icone material-symbols-outlined">mail</span>
+                        <span class="erros icone-erro material-symbols-outlined">error</span>
+                    </div>
+                    <div class="erros erro-msg">O email não pode estar em branco</div>
                 </div>
-                <div id="fileImg">
-                    <label for="txtImage">Imagem</label>
-                    <input type="file" name="image">
+                <div class="campos senha">
+                    <div class="area-input">
+                        <input type="password" name="password" id="ipasswordCad" placeholder="Senha" required>
+                        <span class="icone material-symbols-outlined">lock</span>
+                        <span class="erros icone-erro material-symbols-outlined">error</span>
+                    </div>
+                    <div class="erros erro-msg">A senha não pode estar em branco</div>
                 </div>
-                <div id="n-3">
-                    <input type="submit" value="Postar">
-                </div>                
+                <input type="submit" value="Cadastrar">
+                <div id="resCadastro"></div>
             </form>
         </div>
-        </div>        
     </section>
     {{/if}}
     <section class="posts">
@@ -115,20 +152,23 @@
                 <input type="submit" value="Buscar" id="buscarTermo">
             </form>
         </div>
+        <div class="divartigos">
         {{#each noticias}}
-        <br>
-            <article>
-                <h2>{{title}}</h2>
-                <p class="content">{{content}}</p>
-                <img class="imgNoticia" src="/imgs/uploads/{{image}}">
-                <p class="postBy">Publicado em: {{pTime}}</p>
-            </article>
+            <br>
+                <article class="artigos">
+                    <h2>{{title}}</h2>
+                    <p class="content">{{content}}</p>
+                    <img class="imgNoticia" src="/imgs/uploads/{{image}}">
+                    <p class="postBy">Publicado em: {{pTime}}</p>
+                </article>
         {{/each}}
+        </div>
     </section>
     <img class="chat" src="imgs/chat.png">
     <script src="script/encrypt.js"></script>
     {{#if admin}}
     <script src="script/noticia.js"></script>
+    <script src="script/a_cadastro.js"></script>
     {{/if}}
 </body>
 </html>

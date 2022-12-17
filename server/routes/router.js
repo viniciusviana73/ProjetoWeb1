@@ -18,11 +18,11 @@ router.get('/', async (req, res) => {
         if (req.session.userTypeAdmin) {
             const noticias = await Noticias.find()
             console.log(req.session)
-            res.render('index', { noticias: noticias, user: req.session.login, admin: req.session.userTypeAdmin })
+            res.render('index', { noticias: noticias, user: req.session.login, username: req.session.username, admin: req.session.userTypeAdmin })
         } else {
             const noticias = await Noticias.find()
             console.log(req.session)
-            res.render('index', { noticias: noticias, user: req.session.login })
+            res.render('index', { noticias: noticias, user: req.session.login, username: req.session.username })
         }
     } else {
         console.log('\n -> Requisição de acesso não possui variável de session.login')
@@ -45,12 +45,31 @@ router.post('/cadastrar_user', async (req, res) => {
     }
 })
 
+router.post('/cadastrar_admin', async (req, res) => {    
+    if (req.session && req.session.login && req.session.userTypeAdmin) {
+        const login = req.body.login,
+        password = req.body.password,
+        username = req.body.username,
+        userType = 'admin'
+        if (await Users.cadastrar(username, login, password, userType)) {
+            console.log('Admin cadastrado!')
+            res.redirect('/')
+        } else {
+            res.end('Falha ao cadastrar.')
+        }
+    } else {
+        res.status(403)
+        res.end()
+    }
+})
+
 router.post('/logar', async (req, res) => {
     const login = req.body.login,
           password = req.body.password
 
     if (await Users.find(login, password)) {
         req.session.login = login
+        req.session.username = await Users.getUsername(login)
         console.log(`Variável de session.login criada -> ${req.session.login}`)
         if (await Users.checkType(login) == 'admin') {
             req.session.userTypeAdmin = true
@@ -91,6 +110,17 @@ router.get('/buscar_post', async (req, res) => {
     }
     const noticias = await Noticias.find(termo)
     res.render('index', { noticias: noticias })
+    //    const noticias = await Noticias.find(termo)
+    //    res.json(noticias)
+})
+
+router.get('/NoticiasJSON', async (req, res) => {
+    if (req.session && req.session.login){
+        const noticias = await Noticias.find()
+        res.json(noticias)
+    } else {
+        res.render('login')
+    }
 })
 
 router.get('/logout', (req, res) => {
