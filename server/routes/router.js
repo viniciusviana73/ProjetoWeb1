@@ -14,19 +14,18 @@ router.use(session({
 
 router.get('/', async (req, res) => {
     if (req.session && req.session.login){
-        console.log(`\n -> Variável de session.login da requisição: ${req.session.login}`)
         if (req.session.userTypeAdmin) {
             const noticias = await Noticias.find()
-            console.log(req.session)
+            //console.log(req.session)
             res.render('index', { noticias: noticias, user: req.session.login, username: req.session.username, admin: req.session.userTypeAdmin })
         } else {
             const noticias = await Noticias.find()
-            console.log(req.session)
+            //console.log(req.session)
             res.render('index', { noticias: noticias, user: req.session.login, username: req.session.username })
         }
     } else {
-        console.log('\n -> Requisição de acesso não possui variável de session.login')
-        console.log(req.session)
+        //console.log('\n -> Requisição de acesso não possui variável de session.login')
+        //console.log(req.session)
         res.render('login')
     }
 });
@@ -70,7 +69,7 @@ router.post('/logar', async (req, res) => {
     if (await Users.find(login, password)) {
         req.session.login = login
         req.session.username = await Users.getUsername(login)
-        console.log(`Variável de session.login criada -> ${req.session.login}`)
+        //console.log(`Variável de session.login criada -> ${req.session.login}`)
         if (await Users.checkType(login) == 'admin') {
             req.session.userTypeAdmin = true
         }
@@ -110,17 +109,19 @@ router.get('/buscar_post', async (req, res) => {
     }
     const noticias = await Noticias.find(termo)
     res.render('index', { noticias: noticias })
-    //    const noticias = await Noticias.find(termo)
-    //    res.json(noticias)
 })
 
-router.get('/NoticiasJSON', async (req, res) => {
+router.post('/NoticiasJSON', async (req, res) => {
+    console.log(req.body)
     if (req.session && req.session.login){
-        const noticias = await Noticias.find()
+        let termo = req.body.termo
+        if (termo == '') {
+            console.log('Campo de busca vazio')
+            res.status(400)
+        }
+    const noticias = await Noticias.searchBar(termo)
         res.json(noticias)
-    } else {
-        res.render('login')
-    }
+    } 
 })
 
 router.get('/logout', (req, res) => {

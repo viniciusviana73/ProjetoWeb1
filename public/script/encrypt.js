@@ -84,3 +84,43 @@ function genKey(){
         alert(`Erro: ${error}`)
     }
 }
+
+
+const inputTermo = document.querySelector("#inputTermo"),
+      artigo = document.querySelector("article.artigos"),
+      sResult = document.querySelector("section.searchResult")
+
+
+inputTermo.onkeyup = async (event) => {
+    if (inputTermo.value.length > 2) {
+        try {
+            const url = '/NoticiasJSON'
+            const jsonData = JSON.stringify({ termo: inputTermo.value })
+            let response = await fetch(url, {
+                                        method: 'POST',
+                                        headers: {'Content-Type': 'application/json;charset=utf-8'},
+                                        body: jsonData
+                                        })
+            //console.log(response)
+            console.log(jsonData)
+            const result = await response.json()
+            console.log(result)
+            sResult.innerHTML = ''
+            if (result.length < 1) {
+                sResult.innerHTML = '<p class="pResults">Nenhum resultado encontrado.</p>'
+                return
+            }
+            result.forEach((noticias, index) => {
+                if (index > 0) {
+                    sResult.innerHTML += '<hr>'
+                }
+                sResult.innerHTML += `<p class="pResults"><a class="aResults" href="#${noticias._id}">${noticias.title}</a></p>`
+            })
+            return
+        } catch (error) {
+            console.log(error)
+        }
+    } else {
+        sResult.innerHTML = ''
+    }    
+}

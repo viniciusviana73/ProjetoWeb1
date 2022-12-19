@@ -148,14 +148,15 @@
             <h2>Notícias</h2>
             <form action="buscar_post" method="GET" id="formBusca">
                 <label for="inputTermo">Buscar pelo termo: </label>
-                <input type="text" name="termo" id="inputTermo" required>
+                <input type="text" name="termo" id="inputTermo" autocomplete="off" required>
+                <section class="searchResult"></section>
                 <input type="submit" value="Buscar" id="buscarTermo">
             </form>
         </div>
         <div class="divartigos">
         {{#each noticias}}
             <br>
-                <article class="artigos">
+                <article class="artigos" id="{{_id}}">
                     <h2>{{title}}</h2>
                     <p class="content">{{content}}</p>
                     <img class="imgNoticia" src="/imgs/uploads/{{image}}">

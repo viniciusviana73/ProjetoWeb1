@@ -53,4 +53,23 @@ module.exports = class Noticias {
             console.log('Preencha todos os campos.')
         }
     }
+
+    static async searchBar(termo) {
+        try {
+            await client.connect()
+            const db = client.db(dbName),
+                  col = db.collection("Noticias")
+            let result = await col.find({ $or :
+                                            [{ title : { '$regex' : termo, '$options' : 'i' }},
+                                             { content : { '$regex' : termo, '$options' : 'i' }}]
+                                        }).toArray() 
+            return result
+        } catch (error) {
+            console.log(`Erro Noticias.find() -> ${error}`)
+        } finally {
+            setTimeout( async () => {
+                await client.close()
+              }, 60000)
+        }        
+    }
 }

@@ -4,6 +4,7 @@ let http = require('http'),
     app = express()
     //cookieParser = require('cookie-parser')
 
+app.use(express.json())
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'view'))
 app.use(express.static(path.join(__dirname, 'public')))

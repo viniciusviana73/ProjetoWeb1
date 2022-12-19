@@ -737,8 +737,12 @@ form#formBusca label {
 }
 
 form#formBusca input {
-    margin: 10px auto;
+    margin: 0px auto;
     width: 500px;
+}
+
+form#formBusca #buscarTermo {
+    margin-top: 20px;
 }
 
 .noticias{
@@ -962,6 +966,37 @@ p#pWrnAdm {
     color: rgb(44, 93, 255);
 }
 
+.searchResult {
+    background-color: white;
+    color: black;
+    max-width: 580px;
+    width: 100%;
+    margin: 0px auto 0 auto;
+    padding: 0px 10px;
+}
+
+hr {
+    border-top: none;
+    border: 1px solid lightgray;
+}
+
+p.pResults {
+    margin: 10px 0px;
+    text-shadow: none;
+    font-family: 'BrownLight', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.1em;
+}
+
+a.aResults {
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+}
+
+a.aResults:hover {
+    color: rgb(65, 160, 65);
+    text-decoration: underline;
+}
+
 @media(max-width: 1280px) {
     main {
         background-repeat: no-repeat;
@@ -1030,11 +1065,13 @@ p#pWrnAdm {
         width: 400px;
     }
 
+    .searchResult {
+        width: 480px;   
+    }
+
     .imgNoticia{
         max-width: 400px;
     }
-
-
 }
 
 @media(max-width: 600px){
@@ -1053,6 +1090,10 @@ p#pWrnAdm {
 
     form#formBusca input {
         width: 200px;
+    }
+
+    .searchResult {
+        width: 280px;   
     }
 
     .imgNoticia{
